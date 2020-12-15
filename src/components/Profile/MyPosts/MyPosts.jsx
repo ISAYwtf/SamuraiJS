@@ -3,11 +3,7 @@ import Post from "./Post/Post";
 
 import classes from './MyPosts.module.css';
 
-const MyPosts = () => {
-    let posts = [
-        {id: 1, post: 'Hi how are you', likesCount: 15},
-        {id: 2, post: 'I\'m fine, thanks', likesCount: 20},
-    ]
+const MyPosts = ({posts}) => {
 
     let postsElements = posts.map(el => (
         <Post message={el.post} likesCount={el.likesCount}/>
