@@ -1,0 +1,17 @@
+.post {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    margin: 10px 0;
+
+    background: darkslateblue;
+    color: white;
+}
+
+.post p {
+    margin: 0 20px 0 0;
+}
+
+.post small {
+    margin-right: 5px;
+}

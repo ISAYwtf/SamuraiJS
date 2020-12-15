@@ -1,0 +1,41 @@
+.inputWrap {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px 0;
+}
+
+input[type="submit"] {
+    border: none;
+    background: darkslateblue;
+
+    color: white;
+
+    width: 100px;
+    height: 30px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: #39306c;
+}
+
+textarea {
+    resize: none;
+    border: 2px solid darkslateblue;
+
+    margin-right: 30px;
+    padding: 2px 5px;
+
+    width: 500px;
+    height: 100px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
