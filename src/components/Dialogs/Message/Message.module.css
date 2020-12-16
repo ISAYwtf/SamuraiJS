@@ -1,0 +1,21 @@
+.message {
+    background-color: darkslateblue;
+    width: fit-content;
+    max-width: 250px;
+    padding: 10px 15px;
+    /*border-radius: 100px;*/
+    color: white;
+    margin: 5px 0;
+}
+
+.left {
+    align-self: flex-start;
+}
+
+.right {
+    align-self: flex-end;
+    background: none;
+    color: darkslateblue;
+    border: 2px solid darkslateblue;
+}
+

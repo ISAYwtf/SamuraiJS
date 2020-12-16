@@ -4,7 +4,7 @@
     padding: 10px;
 }
 
-h3 {
+.title {
     text-align: center;
 }
 
@@ -29,7 +29,7 @@ h3 {
 
 .item:hover {
     border: 3px solid #39306c;
-    /*border-color: #39306c;*/
+    /*transform: scale(0.95);*/
 }
 
 img {

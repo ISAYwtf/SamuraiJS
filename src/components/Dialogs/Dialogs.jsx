@@ -7,18 +7,31 @@ const Dialogs = ({state}) => {
 
     const {dialogs, messages} = state;
 
-    let dialogsElements = dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
+    const dialogsElements = dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
 
-    let messagesElements = messages.map(el => <Message message={el.message}/>);
+    const messagesElements = messages.map(el => <Message id={el.id} mine={el.mine} message={el.message}/>);
+
+    const newMessage = React.createRef();
+
+    const sendMessage = () => {
+        const text = newMessage.current.value;
+    }
 
     return (
         <div>
             <div className={classes.dialogs}>
                 <div className={classes.dialogsItems}>
-                    {dialogsElements}
+                    <h3 className={classes.title}>Dialogs</h3>
+                    <div className={classes.dialogsList}>{dialogsElements}</div>
                 </div>
                 <div className={classes.messages}>
-                    {messagesElements}
+                    <h3 className={classes.title}>Messages</h3>
+                    <div className={classes.messageList}>{messagesElements}</div>
+                    <div className={classes.inputs}>
+                        <input type="text" placeholder={`Type your message...`} className={classes.textarea}/>
+                        <input onClick={sendMessage} ref={newMessage} type="submit" value={`Send`}
+                               className={classes.add}/>
+                    </div>
                 </div>
             </div>
         </div>

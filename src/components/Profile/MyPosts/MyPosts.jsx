@@ -5,16 +5,22 @@ import classes from './MyPosts.module.css';
 
 const MyPosts = ({posts}) => {
 
-    let postsElements = posts.map(el => (
+    const postsElements = posts.map(el => (
         <Post message={el.post} likesCount={el.likesCount}/>
     ))
+
+    const newPostElement = React.createRef();
+
+    const addPost = () => {
+        const text = newPostElement.current.value();
+    }
 
     return (
         <div>
             <h2>My posts</h2>
             <div className={classes.inputWrap}>
-                <textarea placeholder={`Type your post...`}></textarea>
-                <input type={`submit`} value={`Add post`}/>
+                <textarea ref={newPostElement} placeholder={`Type your post...`} className={classes.textarea}></textarea>
+                <input onClick={addPost} type={`submit`} value={`Add post`} className={classes.add}/>
             </div>
             <div>
                 {postsElements}

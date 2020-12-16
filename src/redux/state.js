@@ -15,12 +15,12 @@ const state = {
             {id: 6, name: 'Valeriy'},
         ],
         messages: [
-            {id: 1, message: 'Hi'},
-            {id: 2, message: 'How are you'},
-            {id: 3, message: 'Yo'},
-            {id: 4, message: 'Yo'},
-            {id: 5, message: 'Yo'},
-            {id: 6, message: 'Yo'},
+            {id: 1, message: 'Hi', mine: false},
+            {id: 2, message: 'How are you', mine: false},
+            {id: 3, message: 'Yo', mine: false},
+            {id: 4, message: 'Yo', mine: true},
+            {id: 5, message: 'My friend', mine: true},
+            {id: 6, message: `It's a new cool chat, dude!`, mine: true},
         ],
     },
     navbarPage: {

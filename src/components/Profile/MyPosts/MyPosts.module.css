@@ -4,7 +4,7 @@
     margin: 10px 0;
 }
 
-input[type="submit"] {
+.add {
     border: none;
     background: darkslateblue;
 
@@ -13,16 +13,16 @@ input[type="submit"] {
     width: 100px;
     height: 30px;
 
-    cursor: pointer;
+    /*cursor: pointer;*/
 
     transition: 0.2s;
 }
 
-input[type="submit"]:hover {
+.add:hover {
     background: #39306c;
 }
 
-textarea {
+.textarea {
     resize: none;
     border: 2px solid darkslateblue;
 
@@ -35,7 +35,7 @@ textarea {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-textarea:focus,
-input:focus {
+.textarea:focus,
+.add:focus {
     outline: none;
 }
