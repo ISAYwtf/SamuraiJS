@@ -3,7 +3,9 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import classes from './Dialogs.module.css';
 
-const Dialogs = ({dialogs, messages}) => {
+const Dialogs = ({state}) => {
+
+    const {dialogs, messages} = state;
 
     let dialogsElements = dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
 
