@@ -4,14 +4,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 import classes from './Profile.module.css';
 
-const Profile = ({state}) => {
+const Profile = ({state, addPost}) => {
 
     const {posts} = state;
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts posts={posts}/>
+            <MyPosts posts={posts} addPost={addPost}/>
         </div>
     )
 }

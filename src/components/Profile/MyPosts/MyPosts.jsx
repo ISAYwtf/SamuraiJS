@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 
 import classes from './MyPosts.module.css';
 
-const MyPosts = ({posts}) => {
+const MyPosts = ({posts, addPost}) => {
 
     const postsElements = posts.map(el => (
         <Post message={el.post} likesCount={el.likesCount}/>
@@ -11,8 +11,10 @@ const MyPosts = ({posts}) => {
 
     const newPostElement = React.createRef();
 
-    const addPost = () => {
-        const text = newPostElement.current.value();
+    const addPostItem = () => {
+        const text = newPostElement.current.value;
+        addPost(text);
+        newPostElement.current.value = "";
     }
 
     return (
@@ -20,7 +22,7 @@ const MyPosts = ({posts}) => {
             <h2>My posts</h2>
             <div className={classes.inputWrap}>
                 <textarea ref={newPostElement} placeholder={`Type your post...`} className={classes.textarea}></textarea>
-                <input onClick={addPost} type={`submit`} value={`Add post`} className={classes.add}/>
+                <input onClick={addPostItem} type={`submit`} value={`Add post`} className={classes.add}/>
             </div>
             <div>
                 {postsElements}
