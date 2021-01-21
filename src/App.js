@@ -9,7 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-const App = ({state, addPost, updateNewPostText}) => {
+const App = ({state, dispatch}) => {
 
     return (
         <BrowserRouter>
@@ -20,8 +20,7 @@ const App = ({state, addPost, updateNewPostText}) => {
 
                     <Route path={`/dialogs`}
                            render={() => <Dialogs state={state.dialogsPage}/>}/>
-                    <Route path={`/profile`} render={() => <Profile profilePage={state.profilePage} addPost={addPost}
-                                                                    updateNewPostText={updateNewPostText}/>}/>
+                    <Route path={`/profile`} render={() => <Profile profilePage={state.profilePage} dispatch={dispatch}/>}/>
                     <Route path={`/news`} render={() => <News/>}/>
                     <Route path={`/music`} render={() => <Music/>}/>
                     <Route path={`/settings`} render={() => <Settings/>}/>
