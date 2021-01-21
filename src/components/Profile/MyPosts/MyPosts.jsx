@@ -2,6 +2,7 @@ import React from "react";
 import Post from "./Post/Post";
 
 import classes from './MyPosts.module.css';
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
 const MyPosts = ({posts, newPostText, dispatch}) => {
 
@@ -11,20 +12,11 @@ const MyPosts = ({posts, newPostText, dispatch}) => {
 
     const newPostElement = React.createRef();
 
-    const addPostItem = () => {
-        const action = {
-            type: 'ADD-POST'
-        };
-        dispatch(action);
-    }
+    const addPost = () => dispatch(addPostActionCreator());
 
     const onPostChange = () => {
         const text = newPostElement.current.value;
-        const action = {
-            type: 'UPDATE-NEW-POST-TEXT',
-            newText: text,
-        };
-        dispatch(action);
+        dispatch(updateNewPostTextActionCreator(text));
     }
 
     return (
@@ -33,7 +25,7 @@ const MyPosts = ({posts, newPostText, dispatch}) => {
             <div className={classes.inputWrap}>
                 <textarea ref={newPostElement} placeholder={`Type your post...`} className={classes.textarea}
                           value={newPostText} onChange={onPostChange} />
-                <input onClick={addPostItem} type={`submit`} value={`Add post`} className={classes.add}/>
+                <input onClick={addPost} type={`submit`} value={`Add post`} className={classes.add}/>
             </div>
             <div>
                 {postsElements}
