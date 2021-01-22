@@ -25,12 +25,19 @@
 }
 
 .messages {
+    display: flex;
+    flex-direction: column;
     padding: 0 10px;
+    height: 86vh;
 }
 
 .messageList {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    max-height: 72vh;
+    padding-right: 10px;
+    overflow-y: scroll;
 }
 
 .inputs {
