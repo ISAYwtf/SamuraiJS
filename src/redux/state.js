@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 const store = {
     _state: {
@@ -54,64 +53,13 @@ const store = {
         this._callSubscriber = observer;
     },
 
-    _addPost() {
-        const newPost = {
-            id: 3,
-            post: this.getState().profilePage.newPostText,
-            likesCount: 1
-        };
-        this.getState().profilePage.posts.push(newPost);
-        this.getState().profilePage.newPostText = "";
-        this._callSubscriber(this);
-    },
-    _updateNewPostText(newText) {
-        this.getState().profilePage.newPostText = newText;
-        this._callSubscriber(this);
-    },
-    _updateNewMessageText(newText) {
-        this.getState().dialogsPage.newMessageText = newText;
-        this._callSubscriber(this);
-    },
-    _sendMessage() {
-        const newMessage = {
-            id: 7,
-            message: this.getState().dialogsPage.newMessageText,
-            mine: true
-        };
-        this.getState().dialogsPage.messages.push(newMessage);
-        this.getState().dialogsPage.newMessageText = "";
-        this._callSubscriber(this);
-    },
-
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newText);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._updateNewMessageText(action.newText);
-        } else if (action.type === SEND_MESSAGE) {
-            this._sendMessage();
-        }
+        this.getState().profilePage = profileReducer(this.getState().profilePage, action);
+        this.getState().dialogsPage = dialogsReducer(this.getState().dialogsPage, action);
+        this.getState().navbarPage = sidebarReducer(this.getState().navbarPage, action);
+
+        this._callSubscriber(this);
     }
 };
-
-export const addPostActionCreator = () => ({
-    type: ADD_POST
-});
-
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
-});
-
-export const sendMessageActionCreator = () => ({
-    type: SEND_MESSAGE
-});
-
-export const updateNewMessageTextActionCreator = (text) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newText: text
-});
 
 export default store;
