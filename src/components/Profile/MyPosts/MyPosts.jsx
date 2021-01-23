@@ -8,7 +8,7 @@ const MyPosts = ({onPostChange, addPost, profilePage}) => {
     const {newPostText, posts} = profilePage;
 
     const postsElements = posts.map(el => (
-        <Post message={el.post} likesCount={el.likesCount}/>
+        <Post message={el.post} key={el.id} likesCount={el.likesCount}/>
     ))
 
     return (

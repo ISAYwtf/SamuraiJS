@@ -1,7 +1,7 @@
 import classes from './FriendsList.module.css';
 
 const FriendsList = ({friends}) => {
-    const friendsElements = friends.map(el => <div className={classes.item}>
+    const friendsElements = friends.map(el => <div className={classes.item} key={el.id}>
         <img src={el.img}/>
     </div>);
 

@@ -8,8 +8,8 @@ const Dialogs = ({onMessageChange, sendMessage, dialogsPage}) => {
 
     const {dialogs, messages, newMessageText} = dialogsPage;
 
-    const dialogsElements = dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
-    const messagesElements = messages.map(el => <Message id={el.id} mine={el.mine} message={el.message}/>);
+    const dialogsElements = dialogs.map(el => <DialogItem name={el.name} key={el.id} id={el.id}/>);
+    const messagesElements = messages.map(el => <Message id={el.id} mine={el.mine} key={el.id} message={el.message}/>);
 
     return (
         <div>
