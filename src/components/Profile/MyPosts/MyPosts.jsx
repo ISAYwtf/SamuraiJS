@@ -3,7 +3,9 @@ import Post from "./Post/Post";
 
 import classes from './MyPosts.module.css';
 
-const MyPosts = ({posts, newPostText, onPostChange, addPost}) => {
+const MyPosts = ({onPostChange, addPost, profilePage}) => {
+
+    const {newPostText, posts} = profilePage;
 
     const postsElements = posts.map(el => (
         <Post message={el.post} likesCount={el.likesCount}/>
