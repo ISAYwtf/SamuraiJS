@@ -30,7 +30,7 @@ const store = {
             ],
             newMessageText: "",
         },
-        navbarPage: {
+        sidebar: {
             friends: [
                 {id: 1, img: 'https://s0.rbk.ru/v6_top_pics/media/img/8/22/755895443908228.jpg'},
                 {
@@ -40,7 +40,6 @@ const store = {
                 {id: 3, img: 'https://brammels.com/wp-content/uploads/2018/06/krasivye-lyudi-umnee.jpg'},
                 {id: 4, img: 'https://www.kino-teatr.ru/art/5823/82736.jpg'}
             ]
-
         }
     },
     _callSubscriber() {
@@ -56,7 +55,7 @@ const store = {
     dispatch(action) {
         this.getState().profilePage = profileReducer(this.getState().profilePage, action);
         this.getState().dialogsPage = dialogsReducer(this.getState().dialogsPage, action);
-        this.getState().navbarPage = sidebarReducer(this.getState().navbarPage, action);
+        this.getState().navbarPage = sidebarReducer(this.getState().sidebar, action);
 
         this._callSubscriber(this);
     }
