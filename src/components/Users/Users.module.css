@@ -1,5 +1,5 @@
 .usersWrap {
-
+    position: relative;
 }
 
 .user {
@@ -86,3 +86,52 @@
 .infoCity {
 
 }
+
+.pagination {
+    position: sticky;
+    bottom: 10px;
+
+    width: 100%;
+    height: max-content;
+
+    z-index: 1;
+}
+
+.paginationWrap {
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+    width: max-content;
+    height: max-content;
+
+    color: white;
+    background-color: rgba(72, 61, 139, 0.7);
+    /*border: 1px solid darkslateblue;*/
+    border-radius: 100px;
+}
+
+.paginationWrap span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.paginationWrap span:hover {
+    background-color: rgba(57, 48, 108, 0.9);
+}
+
+.paginationActive {
+    background-color: rgba(57, 48, 108, 0.6);
+}
+

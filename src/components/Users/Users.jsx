@@ -33,10 +33,70 @@ import * as axios from "axios";
 
 class Users extends React.Component {
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        this.getUsers(this.props.currentPage);
+    }
+
+    getUsers = (currentPage) => {
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
             })
+    }
+
+    onPageChanged = pageNumber => {
+        this.props.setCurrentPage(pageNumber);
+        this.getUsers(pageNumber);
+    }
+
+    createPagination = () => {
+        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        const pages = [];
+
+        let pagination;
+
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
+        if (pages.length > 20) {
+            let paginationCounter = 0;
+            pagination = pages.map((el, i, arr) => {
+                const currentPage = this.props.currentPage;
+
+                if ((el > 0 && el < 4) || (el > arr.length - 3 && el < arr.length)) {
+                    return <span onClick={() => this.onPageChanged(el)}
+                                 className={currentPage === el && classes.paginationActive}
+                                 key={el}>{el}</span>
+                } else if (currentPage === el) {
+                    return <span onClick={() => this.onPageChanged(el)}
+                                 className={classes.paginationActive} key={el}>{el}</span>
+                } else if (el === currentPage - 1 || el === currentPage + 1) {
+                    if (el < currentPage) {
+                        return <span onClick={() => this.onPageChanged(el)} key={el}>{"<"}</span>
+                    } else {
+                        return <span onClick={() => this.onPageChanged(el)} key={el}>{">"}</span>
+                    }
+                } else {
+                    paginationCounter++;
+                    if (paginationCounter <= 100) {
+                        if (el < currentPage - 1 || el > currentPage + 1) {
+                            return "."
+                        }
+                    }
+                }
+            })
+        } else {
+            pagination = pages.map(el => {
+                const currentPage = this.props.currentPage;
+
+                return <span onClick={() => this.onPageChanged(el)}
+                             className={currentPage === el && classes.paginationActive}>{el}</span>
+            })
+        }
+
+        return pagination;
     }
 
     render = () => {
@@ -80,6 +140,11 @@ class Users extends React.Component {
                     );
                 })
             }
+            <div className={classes.pagination}>
+                <div className={classes.paginationWrap}>
+                    {this.createPagination()}
+                </div>
+            </div>
         </div>
     }
 }
