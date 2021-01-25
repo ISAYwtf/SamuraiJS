@@ -29,53 +29,60 @@ import * as axios from "axios";
 //     },
 // ];
 
-const Users = ({users, follow, unFollow, setUsers}) => {
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
+        // super({users, follow, unFollow, setUsers});
 
-    const getUsers = () => {
-        if (users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
-                .then(response => {
-                    setUsers(response.data.items);
-                })
-        }
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            })
     }
 
-    return <div>
-        <button onClick={getUsers}>Get Users</button>
-        {
-            users.map(el => {
-                const followBtn = flag => flag ? "Unfollow" : "Follow";
-                const checkFollowing = (flag, id) => flag ? () => unFollow(id) : () => follow(id);
-                const checkImage = (img, name) => {
-                    return img !== null ? <img src={img} alt="avatar"/> : name.substr(0, 1).toUpperCase();
-                };
+    render = () => {
+        return <div className={classes.usersWrap}>
+            {
+                this.props.users.map(el => {
+                    const followBtn = flag => flag ? "Unfollow" : "Follow";
+                    const checkFollowing = (flag, id) => {
+                        return flag ? () => this.props.unFollow(id) : () => this.props.follow(id);
+                    };
+                    const checkImage = (img, name) => {
+                        if (img !== null) {
+                            return <img src={img} alt="avatar"/>;
+                        } else {
+                            return name.substr(0, 1).toUpperCase();
+                        }
+                    };
 
-                return (
-                    <div className={classes.user} key={el.id}>
-                        <div className={classes.userAvatar}>
-                            <div className={classes.avatarImage}>
-                                {checkImage(el.photos.small, el.name)}
+                    return (
+                        <div className={classes.user} key={el.id}>
+                            <div className={classes.userAvatar}>
+                                <div className={classes.avatarImage}>
+                                    {checkImage(el.photos.small, el.name)}
+                                </div>
+                                <button className={classes.avatarButton}
+                                        onClick={checkFollowing(el.followed, el.id)}>
+                                    {followBtn(el.followed)}
+                                </button>
                             </div>
-                            <button className={classes.avatarButton}
-                                    onClick={checkFollowing(el.followed, el.id)}>
-                                {followBtn(el.followed)}
-                            </button>
+                            <div className={classes.userInfo}>
+                                <div className={classes.infoMain}>
+                                    <div className={classes.infoName}>{el.name}</div>
+                                    <div className={classes.infoStatus}>{el.status}</div>
+                                </div>
+                                <div className={classes.infoLocation}>
+                                    <div className={classes.infoCountry}>{'el.location.country'}</div>
+                                    <div className={classes.infoCity}>{'el.location.city'}</div>
+                                </div>
+                            </div>
                         </div>
-                        <div className={classes.userInfo}>
-                            <div className={classes.infoMain}>
-                                <div className={classes.infoName}>{el.name}</div>
-                                <div className={classes.infoStatus}>{el.status}</div>
-                            </div>
-                            <div className={classes.infoLocation}>
-                                <div className={classes.infoCountry}>{'el.location.country'}</div>
-                                <div className={classes.infoCity}>{'el.location.city'}</div>
-                            </div>
-                        </div>
-                    </div>
-                );
-            })
-        }
-    </div>
+                    );
+                })
+            }
+        </div>
+    }
 }
 
 export default Users;
