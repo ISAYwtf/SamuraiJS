@@ -31,16 +31,19 @@ import * as axios from "axios";
 
 const Users = ({users, follow, unFollow, setUsers}) => {
 
-    if (users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                setUsers(response.data.items);
-            })
+    const getUsers = () => {
+        if (users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    setUsers(response.data.items);
+                })
+        }
     }
 
-    return (
-        <div>
-            {users.map(el => {
+    return <div>
+        <button onClick={getUsers}>Get Users</button>
+        {
+            users.map(el => {
                 const followBtn = flag => flag ? "Unfollow" : "Follow";
                 const checkFollowing = (flag, id) => flag ? () => unFollow(id) : () => follow(id);
                 const checkImage = (img, name) => {
@@ -70,9 +73,9 @@ const Users = ({users, follow, unFollow, setUsers}) => {
                         </div>
                     </div>
                 );
-            })}
-        </div>
-    )
+            })
+        }
+    </div>
 }
 
 export default Users;
