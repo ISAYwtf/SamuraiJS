@@ -1,10 +1,16 @@
 import React from 'react';
 import classes from './Users.module.css';
-import Pagination from "./Pagination/Pagination";
+import Pagination from "../common/Pagination/Pagination";
+import Preloader from "../common/Preloader/Preloader";
 
 const Users = (props) => {
 
+    const getPreloader = (flag) => {
+        return flag ? <Preloader /> : null;
+    }
+
     return <div className={classes.usersWrap}>
+        {getPreloader(props.isFetching)}
         {
             props.users.map(el => {
                 const followBtn = flag => flag ? "Unfollow" : "Follow";
