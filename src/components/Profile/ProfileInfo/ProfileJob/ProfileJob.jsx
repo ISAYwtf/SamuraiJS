@@ -4,9 +4,9 @@ import classes from "./ProfileJob.module.css";
 const ProfileJob = ({lookingForAJob, lookingForAJobDescription}) => {
     return (
         <div className={classes.profileJob}>
-            <h2>Поиск работы</h2>
+            <h2>Search for a job</h2>
             <p>
-                <span>{lookingForAJob ? "Ищу работу." : "Не ищу работу."}</span>
+                <span>{lookingForAJob ? "Looking for a job." : "Not looking for a job."}</span>
                 {lookingForAJobDescription}
             </p>
         </div>
