@@ -3,10 +3,26 @@
     background-color: darkslateblue;
     border-radius: 0 0 5px 5px;
     padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .header img {
     background-color: white;
     border-radius: 50px;
     width: 60px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+}
+
+.login a {
+    color: white;
+    text-decoration: none;
 }
