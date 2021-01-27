@@ -8,6 +8,10 @@
     display: flex;
 }
 
+.user a {
+    text-decoration: none;
+}
+
 .userAvatar {
     display: flex;
     flex-direction: column;

@@ -3,3 +3,21 @@
     height: 150px;
     object-fit: cover;
 }
+
+.profileUser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+
+    padding: 10px 0;
+}
+
+.profileUser h2,
+.profileUser p {
+    margin: 0;
+}
+
+.profileUser p  {
+    margin-bottom: 30px;
+}

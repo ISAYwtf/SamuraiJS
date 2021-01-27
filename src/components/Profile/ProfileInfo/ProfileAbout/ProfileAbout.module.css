@@ -1,0 +1,51 @@
+
+.profileMainInfo {
+    display: flex;
+    height: 180px;
+    width: 100%;
+    padding: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.profileAvatar {
+    height: 100%;
+    width: max-content;
+    background-color: darkslateblue;
+}
+
+
+.profileAvatar span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 2em;
+
+    font-size: 5em;
+    color: white;
+}
+.profileAvatar img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profileAbout {
+    padding: 0 10px;
+    flex-grow: 1;
+}
+
+.profileId {
+    font-size: 4em;
+}
+
+.profileName {
+    font-size: 2em;
+    font-weight: bold;
+    color: darkslateblue;
+}
+
+.profileDesc {
+
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Pagination.module.css';
 
-const Pagination = ({props}) => {
+const Pagination = (props) => {
     const {totalUsersCount, pageSize, currentPage, onPageChanged} = props;
 
     const createPagination = () => {

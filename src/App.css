@@ -16,7 +16,6 @@
 .app-wrapper-content {
     grid-area: c;
     border-radius: 5px;
-    padding: 10px;
     height: 80vh;
     overflow-y: scroll;
 }
