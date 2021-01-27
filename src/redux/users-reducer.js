@@ -6,32 +6,7 @@ const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 const initialState = {
-    users: [
-    //     {
-    //         id: 1,
-    //         fullName: 'Boris M.',
-    //         status: 'Hello everyone!',
-    //         location: {city: 'Moscow', country: 'Russia Federation'},
-    //         img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg",
-    //         followed: false
-    //     },
-    //     {
-    //         id: 2,
-    //         fullName: 'Alex J.',
-    //         status: 'I have a great life!',
-    //         location: {city: 'New York', country: 'United States'},
-    //         img: "https://s0.rbk.ru/v6_top_pics/media/img/8/22/755895443908228.jpg",
-    //         followed: true
-    //     },
-    //     {
-    //         id: 3,
-    //         fullName: 'Marko P.',
-    //         status: 'If you need some adventures...call me :)',
-    //         location: {city: 'Florence', country: 'Italy'},
-    //         img: "https://www.tubefilter.com/wp-content/uploads/2019/11/dobrik-people.jpg",
-    //         followed: false
-    //     },
-    ],
+    users: [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
