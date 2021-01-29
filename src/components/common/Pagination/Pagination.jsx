@@ -21,7 +21,7 @@ const Pagination = (props) => {
                 if ((el > 0 && el < 4) || (el > arr.length - 3 && el < arr.length)) {
 
                     return <span onClick={() => onPageChanged(el)}
-                                 className={currentPage === el && classes.paginationActive}
+                                 className={currentPage === el ? classes.paginationActive : ""}
                                  key={el}>{el}</span>
 
                 } else if (currentPage === el) {
@@ -50,7 +50,7 @@ const Pagination = (props) => {
         } else {
             pagination = pages.map(el => {
                 return <span onClick={() => onPageChanged(el)}
-                             className={currentPage === el && classes.paginationActive}>{el}</span>
+                             className={currentPage === el ? classes.paginationActive : ""}>{el}</span>
             })
         }
 
