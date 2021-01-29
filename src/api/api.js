@@ -20,10 +20,13 @@ export const usersAPI = {
     unFollowTo(id) {
         return server.delete(`follow/${id}`)
             .then(response => response.data);
+    },
+    getProfile(userId) {
+        return server.get(`profile/${userId}`).then(response => response.data);
     }
 }
 
-export const auth = {
+export const authAPI = {
     getMe() {
         return server.get(`auth/me/`, {
             withCredentials: true
