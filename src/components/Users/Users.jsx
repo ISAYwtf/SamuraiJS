@@ -18,17 +18,23 @@ const Users = (props) => {
                 const followBtn = flag => flag ? "Unfollow" : "Follow";
 
                 const checkFollowing = (flag, id) => {
-                    flag ?
+                    if (flag) {
+                        props.toggleIsFollowing(true);
                         usersAPI.unFollowTo(id).then(data => {
                             if (data.resultCode === 0) {
                                 props.unFollow(id);
                             }
-                        })
-                        : usersAPI.followTo(id).then(data => {
+                            props.toggleIsFollowing(false, id);
+                        });
+                    } else {
+                        props.toggleIsFollowing(true);
+                        usersAPI.followTo(id).then(data => {
                             if (data.resultCode === 0) {
                                 props.follow(id);
                             }
+                            props.toggleIsFollowing(false, id);
                         });
+                    }
                 }
 
                 const checkImage = (img, name) => {
@@ -45,7 +51,8 @@ const Users = (props) => {
                             <NavLink to={`/profile/${el.id}`} className={classes.avatarImage}>
                                 {checkImage(el.photos.small, el.name)}
                             </NavLink>
-                            <button className={classes.avatarButton}
+                            <button disabled={props.isFollowing.some(id => id === el.id)}
+                                    className={classes.avatarButton}
                                     onClick={() => checkFollowing(el.followed, el.id)}>
                                 {followBtn(el.followed)}
                             </button>
