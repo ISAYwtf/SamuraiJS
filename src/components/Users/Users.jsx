@@ -3,7 +3,6 @@ import classes from './Users.module.css';
 import Pagination from "../common/Pagination/Pagination";
 import Preloader from "../common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 const Users = (props) => {
 
@@ -16,33 +15,12 @@ const Users = (props) => {
         {
             props.users.map(el => {
                 const followBtn = flag => flag ? "Unfollow" : "Follow";
-
-                const checkFollowing = (flag, id) => {
-                    if (flag) {
-                        props.toggleIsFollowing(true);
-                        usersAPI.unFollowTo(id).then(data => {
-                            if (data.resultCode === 0) {
-                                props.unFollow(id);
-                            }
-                            props.toggleIsFollowing(false, id);
-                        });
-                    } else {
-                        props.toggleIsFollowing(true);
-                        usersAPI.followTo(id).then(data => {
-                            if (data.resultCode === 0) {
-                                props.follow(id);
-                            }
-                            props.toggleIsFollowing(false, id);
-                        });
-                    }
-                }
+                const checkFollowing = (flag, id) => flag ? props.unFollowTo(id) : props.followTo(id);
 
                 const checkImage = (img, name) => {
-                    if (img) {
-                        return <img src={img} alt="avatar"/>;
-                    } else {
-                        return name.substr(0, 1).toUpperCase();
-                    }
+                    return img
+                        ? <img src={img} alt="avatar"/>
+                        : name.substr(0, 1).toUpperCase();
                 };
 
                 return (
