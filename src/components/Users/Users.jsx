@@ -3,7 +3,7 @@ import classes from './Users.module.css';
 import Pagination from "../common/Pagination/Pagination";
 import Preloader from "../common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+import {usersAPI} from "../../api/api";
 
 const Users = (props) => {
 
@@ -18,30 +18,18 @@ const Users = (props) => {
                 const followBtn = flag => flag ? "Unfollow" : "Follow";
 
                 const checkFollowing = (flag, id) => {
-                    if (flag) {
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY": "eea6845f-31df-455c-b1eb-312ac9f3c7b1"
-                            }
-                        }).then(response => {
-                            if (response.data.resultCode === 0) {
+                    flag ?
+                        usersAPI.unFollowTo(id).then(data => {
+                            if (data.resultCode === 0) {
                                 props.unFollow(id);
                             }
-                        });
-                    } else {
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY": "eea6845f-31df-455c-b1eb-312ac9f3c7b1"
-                            }
-                        }).then(response => {
-                            if (response.data.resultCode === 0) {
+                        })
+                        : usersAPI.followTo(id).then(data => {
+                            if (data.resultCode === 0) {
                                 props.follow(id);
                             }
                         });
-                    }
-                };
+                }
 
                 const checkImage = (img, name) => {
                     if (img) {
