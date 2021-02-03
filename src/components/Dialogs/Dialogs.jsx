@@ -5,6 +5,7 @@ import Message from "./Message/Message";
 import classes from './Dialogs.module.css';
 
 const Dialogs = ({onMessageChange, sendMessage, dialogsPage}) => {
+    debugger
 
     const {dialogs, messages, newMessageText} = dialogsPage;
 
@@ -23,7 +24,7 @@ const Dialogs = ({onMessageChange, sendMessage, dialogsPage}) => {
                     <div className={classes.messageList}>{messagesElements}</div>
                     <div className={classes.inputs}>
                         <input type="text" placeholder={`Type your message...`} className={classes.textarea}
-                               onChange={onMessageChange} value={newMessageText}/>
+                               onChange={e => onMessageChange(e.target.value)} value={newMessageText}/>
                         <input onClick={sendMessage} type="submit" value={`Send`}
                                className={classes.add}/>
                     </div>

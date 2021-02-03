@@ -16,7 +16,7 @@ const MyPosts = ({onPostChange, addPost, profilePage}) => {
             <h2>My posts</h2>
             <div className={classes.inputWrap}>
                 <textarea placeholder={`Type your post...`} className={classes.textarea}
-                          value={newPostText} onChange={onPostChange}/>
+                          value={newPostText} onChange={e => onPostChange(e.target.value)}/>
                 <input onClick={addPost} type={`submit`} value={`Add post`} className={classes.add}/>
             </div>
             <div>
