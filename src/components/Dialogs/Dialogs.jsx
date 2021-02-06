@@ -5,8 +5,6 @@ import Message from "./Message/Message";
 import classes from './Dialogs.module.css';
 
 const Dialogs = ({onMessageChange, sendMessage, dialogsPage}) => {
-    debugger
-
     const {dialogs, messages, newMessageText} = dialogsPage;
 
     const dialogsElements = dialogs.map(el => <DialogItem name={el.name} key={el.id} id={el.id}/>);

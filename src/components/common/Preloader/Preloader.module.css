@@ -1,6 +1,8 @@
 .preloaderWrap {
     background-color: rgba(255, 255, 255, 0.6);
     position: absolute;
+    max-width: 73vw;
+    max-height: 80vh;
     width: 100%;
     height: 100%;
     display: flex;
