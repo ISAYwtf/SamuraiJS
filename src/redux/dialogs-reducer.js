@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const UPDATE_INPUT_TEXT = 'UPDATE-INPUT-TEXT';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 const initialState = {
@@ -18,28 +18,28 @@ const initialState = {
         {id: 5, message: 'My friend', mine: true},
         {id: 6, message: `It's a new cool chat, dude!`, mine: true},
     ],
-    newMessageText: "",
+    inputText: "",
 };
 
 const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_TEXT:
+        case UPDATE_INPUT_TEXT:
             return {
                 ...state,
-                newMessageText: action.newText
+                inputText: action.newText
             };
         case SEND_MESSAGE:
             const newMessage = {
                 id: 7,
-                message: state.newMessageText,
+                message: state.inputText,
                 mine: true
             };
 
             return {
                 ...state,
                 messages: [...state.messages, {...newMessage}],
-                newMessageText: ""
+                inputText: ""
             };
         default:
             return state;
@@ -51,7 +51,7 @@ export const sendMessage = () => ({
 });
 
 export const onMessageChange = (text) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
+    type: UPDATE_INPUT_TEXT,
     newText: text
 });
 

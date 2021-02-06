@@ -1,32 +1,49 @@
 import React from "react";
+import {onChangeInput} from "../../../../../redux/profile-reducer";
 
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
+        status: this.props.status
     }
 
-    activateEditMode() {
+    activateEditMode = () => {
         this.setState({
             editMode: true
         })
     }
 
-    deactivateEditMode() {
+    deactivateEditMode = (e) => {
         this.setState({
             editMode: false
         })
+        this.props.updateStatus(this.state.status);
+    }
+
+    onInputChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            });
+        }
     }
 
     render = () => {
         return (
             <div>
                 {!this.state.editMode
-                    ? <div onDoubleClick={this.activateEditMode.bind(this)}>
-                        <span>{this.props.status}</span>
+                    ? <div onDoubleClick={this.activateEditMode}>
+                        <span>{this.state.status}</span>
                     </div>
                     : <div>
-                        <input autoFocus onBlur={this.deactivateEditMode.bind(this)} type="text"
-                               value={this.props.status}/>
+                        <input autoFocus onBlur={this.deactivateEditMode} type="text"
+                               value={this.state.status} onChange={this.onInputChange}/>
                     </div>}
             </div>
         )

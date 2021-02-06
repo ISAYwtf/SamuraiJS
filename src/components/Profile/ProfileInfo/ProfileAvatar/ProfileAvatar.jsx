@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./ProfileAvatar.module.css";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusContainer from "./ProfileStatus/ProfileStatusContainer";
 
-const ProfileAvatar = ({photos, fullName, status, userId}) => {
+const ProfileAvatar = ({photos, fullName, userId}) => {
     return (
         <div className={classes.profileMainInfo}>
             <div className={classes.profileAvatar}>
@@ -14,7 +14,7 @@ const ProfileAvatar = ({photos, fullName, status, userId}) => {
             </div>
             <div className={classes.profileStatus}>
                 <div className={classes.profileName}>{fullName}</div>
-                <ProfileStatus status={status} />
+                <ProfileStatusContainer/>
             </div>
             <div className={classes.profileId}>{userId}</div>
         </div>

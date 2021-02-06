@@ -22,7 +22,19 @@ export const usersAPI = {
             .then(response => response.data);
     },
     getProfile(userId) {
+        return profileAPI.getProfile(userId);
+    }
+}
+
+export const profileAPI = {
+    getProfile(userId) {
         return server.get(`profile/${userId}`).then(response => response.data);
+    },
+    getStatus(userId) {
+        return server.get(`profile/status/${userId}`).then(response => response.data);
+    },
+    updateStatus(status) {
+        return server.put(`profile/status`, {status}).then(response => response.data);
     }
 }
 
