@@ -1,0 +1,50 @@
+.container {
+    position: relative;
+}
+
+.input {
+    /*box-sizing: border-box;*/
+    border: 2px solid darkslateblue;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.error .input {
+    border-color: red;
+}
+
+.errorMessage {
+    position: absolute;
+    top: 0;
+    right: -150px;
+
+    display: block;
+    padding: 5px 10px;
+    /*width: fit-content;*/
+    height: max-content;
+    width: 150px;
+    text-align: center;
+
+    background-color: red;
+    color: white;
+}
+
+.errorMessage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 10px solid red;
+}
+

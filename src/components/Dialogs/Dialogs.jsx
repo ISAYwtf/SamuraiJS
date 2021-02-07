@@ -4,6 +4,10 @@ import Message from "./Message/Message";
 
 import classes from './Dialogs.module.css';
 import {Field, reduxForm} from "redux-form";
+import {Input} from "../common/FormControls/FormControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+
+const maxLength300 = maxLengthCreator(300);
 
 const Dialogs = ({sendMessage, dialogsPage}) => {
     const {dialogs, messages} = dialogsPage;
@@ -35,8 +39,8 @@ const Dialogs = ({sendMessage, dialogsPage}) => {
 const AddMessageForm = props => {
     return (
         <form className={classes.inputs} onSubmit={props.handleSubmit}>
-            <Field component={"input"} type="text" name={"messageBody"} placeholder={`Type your message...`}
-                   className={classes.textarea}/>
+            <Field component={Input} type="text" name={"messageBody"} placeholder={`Type your message...`}
+                   className={classes.textarea} validate={[required, maxLength300]}/>
             <button name={"messageSubmit"} type="submit" className={classes.add}>Send</button>
         </form>
     )
