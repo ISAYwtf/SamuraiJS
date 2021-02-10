@@ -15,10 +15,12 @@ const Pagination = (props) => {
         }
 
         if (pages.length > 20) {
+            // debugger
             let paginationCounter = 0;
 
             pagination = pages.map((el, i, arr) => {
-                if ((el > 0 && el < 4) || (el > arr.length - 3 && el < arr.length)) {
+                // debugger
+                if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length)) {
 
                     return <span onClick={() => onPageChanged(el)}
                                  className={currentPage === el ? classes.paginationActive : ""}
@@ -41,9 +43,7 @@ const Pagination = (props) => {
                     paginationCounter++;
 
                     if (paginationCounter <= 100) {
-                        if (el < currentPage - 1 || el > currentPage + 1) {
                             return "."
-                        }
                     }
                 }
             })
