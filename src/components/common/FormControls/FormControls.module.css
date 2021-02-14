@@ -16,6 +16,11 @@
     outline: none;
 }
 
+.input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+
 .error .input {
     border-color: red;
 }
