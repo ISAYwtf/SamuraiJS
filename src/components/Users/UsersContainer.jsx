@@ -3,7 +3,12 @@ import {connect} from 'react-redux';
 import {followTo, getUsers, setCurrentPage, unFollowTo} from '../../redux/users-reducer';
 import Users from './Users';
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {
+    getCurrentPageState, getIsFetchingState, getIsFollowingState,
+    getPageSizeState,
+    getTotalUsersCountState,
+    getUsersState
+} from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -24,13 +29,22 @@ class UsersContainer extends React.Component {
     </>
 }
 
+// const mapStateToProps = state => ({
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     currentPage: state.usersPage.currentPage,
+//     isFetching: state.usersPage.isFetching,
+//     isFollowing: state.usersPage.isFollowing
+// })
+
 const mapStateToProps = state => ({
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    isFollowing: state.usersPage.isFollowing
+    users: getUsersState(state),
+    pageSize: getPageSizeState(state),
+    totalUsersCount: getTotalUsersCountState(state),
+    currentPage: getCurrentPageState(state),
+    isFetching: getIsFetchingState(state),
+    isFollowing: getIsFollowingState(state)
 })
 
 const mapDispatchToProps = {
