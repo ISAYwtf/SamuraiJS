@@ -12,31 +12,36 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize);
     }
 
     onPageChanged = pageNumber => {
+        const {pageSize} = this.props;
         this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.getUsers(pageNumber, pageSize);
     }
 
-    render = () => <>
-        <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
-               users={this.props.users} unFollowTo={this.props.unFollowTo} followTo={this.props.followTo}
-               currentPage={this.props.currentPage} onPageChanged={this.onPageChanged}
-               isFetching={this.props.isFetching} isFollowing={this.props.isFollowing}
-        />
-    </>
+    render = () => {
+        const {
+            totalUsersCount,
+            pageSize,
+            users,
+            unFollowTo,
+            followTo,
+            currentPage,
+            isFetching,
+            isFollowing
+        } = this.props;
+        return <>
+            <Users totalUsersCount={totalUsersCount} pageSize={pageSize}
+                   users={users} unFollowTo={unFollowTo} followTo={followTo}
+                   currentPage={currentPage} onPageChanged={this.onPageChanged}
+                   isFetching={isFetching} isFollowing={isFollowing}
+            />
+        </>
+    }
 }
-
-// const mapStateToProps = state => ({
-//     users: state.usersPage.users,
-//     pageSize: state.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isFetching: state.usersPage.isFetching,
-//     isFollowing: state.usersPage.isFollowing
-// })
 
 const mapStateToProps = state => ({
     users: getUsersState(state),

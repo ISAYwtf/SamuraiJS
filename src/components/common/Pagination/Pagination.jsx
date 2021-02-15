@@ -15,11 +15,9 @@ const Pagination = (props) => {
         }
 
         if (pages.length > 20) {
-            // debugger
             let paginationCounter = 0;
 
             pagination = pages.map((el, i, arr) => {
-                // debugger
                 if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length)) {
 
                     return <span onClick={() => onPageChanged(el)}
