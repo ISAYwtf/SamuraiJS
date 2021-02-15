@@ -8,17 +8,18 @@ import {Textarea} from "../../common/FormControls/FormControls";
 
 const maxLength300 = maxLengthCreator(300);
 
-const MyPosts = ({addPost, profilePage}) => {
+const MyPosts = React.memo(props => {
+    let {addPost, profilePage} = props;
 
     const {posts} = profilePage;
 
     const postsElements = posts.map(el => (
         <Post message={el.post} key={el.id} likesCount={el.likesCount}/>
-    ))
+    ));
 
     const addNewPost = values => {
         addPost(values.newPost);
-    }
+    };
 
     return (
         <div>
@@ -28,8 +29,8 @@ const MyPosts = ({addPost, profilePage}) => {
                 {postsElements}
             </div>
         </div>
-    )
-}
+    );
+});
 
 const AddPostForm = props => {
     return (
@@ -39,7 +40,7 @@ const AddPostForm = props => {
             <button className={classes.add}>Add post</button>
         </form>
     )
-}
+};
 
 const AddPostFormRedux = reduxForm({form: "postForm"})(AddPostForm);
 
