@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Pagination.module.css';
 
 const Pagination = (props) => {
-    const {totalUsersCount, pageSize, currentPage, onPageChanged} = props;
+    const {totalItemsCount, pageSize, currentPage, onPageChanged} = props;
 
     const createPagination = () => {
-        const pagesCount = Math.ceil(totalUsersCount / pageSize);
+        const pagesCount = Math.ceil(totalItemsCount / pageSize);
         const pages = [];
 
         let pagination;
