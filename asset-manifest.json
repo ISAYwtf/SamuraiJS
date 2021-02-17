@@ -1,0 +1,34 @@
+{
+  "files": {
+    "static/js/0.62e1b83c.chunk.js": "/react-study-project/static/js/0.62e1b83c.chunk.js",
+    "static/js/0.62e1b83c.chunk.js.map": "/react-study-project/static/js/0.62e1b83c.chunk.js.map",
+    "main.css": "/react-study-project/static/css/main.adabe413.chunk.css",
+    "main.js": "/react-study-project/static/js/main.caeb1a2e.chunk.js",
+    "main.js.map": "/react-study-project/static/js/main.caeb1a2e.chunk.js.map",
+    "runtime-main.js": "/react-study-project/static/js/runtime-main.64dd9850.js",
+    "runtime-main.js.map": "/react-study-project/static/js/runtime-main.64dd9850.js.map",
+    "static/js/3.7254f91e.chunk.js": "/react-study-project/static/js/3.7254f91e.chunk.js",
+    "static/js/3.7254f91e.chunk.js.map": "/react-study-project/static/js/3.7254f91e.chunk.js.map",
+    "static/css/4.0f000d12.chunk.css": "/react-study-project/static/css/4.0f000d12.chunk.css",
+    "static/js/4.7b9c7d2f.chunk.js": "/react-study-project/static/js/4.7b9c7d2f.chunk.js",
+    "static/js/4.7b9c7d2f.chunk.js.map": "/react-study-project/static/js/4.7b9c7d2f.chunk.js.map",
+    "static/css/5.93e270e4.chunk.css": "/react-study-project/static/css/5.93e270e4.chunk.css",
+    "static/js/5.76e7acc5.chunk.js": "/react-study-project/static/js/5.76e7acc5.chunk.js",
+    "static/js/5.76e7acc5.chunk.js.map": "/react-study-project/static/js/5.76e7acc5.chunk.js.map",
+    "static/css/6.2e62a2f3.chunk.css": "/react-study-project/static/css/6.2e62a2f3.chunk.css",
+    "static/js/6.fffd0f9d.chunk.js": "/react-study-project/static/js/6.fffd0f9d.chunk.js",
+    "static/js/6.fffd0f9d.chunk.js.map": "/react-study-project/static/js/6.fffd0f9d.chunk.js.map",
+    "index.html": "/react-study-project/index.html",
+    "static/css/4.0f000d12.chunk.css.map": "/react-study-project/static/css/4.0f000d12.chunk.css.map",
+    "static/css/5.93e270e4.chunk.css.map": "/react-study-project/static/css/5.93e270e4.chunk.css.map",
+    "static/css/6.2e62a2f3.chunk.css.map": "/react-study-project/static/css/6.2e62a2f3.chunk.css.map",
+    "static/css/main.adabe413.chunk.css.map": "/react-study-project/static/css/main.adabe413.chunk.css.map",
+    "static/js/3.7254f91e.chunk.js.LICENSE.txt": "/react-study-project/static/js/3.7254f91e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64dd9850.js",
+    "static/js/3.7254f91e.chunk.js",
+    "static/css/main.adabe413.chunk.css",
+    "static/js/main.caeb1a2e.chunk.js"
+  ]
+}
