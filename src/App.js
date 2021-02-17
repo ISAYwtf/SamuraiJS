@@ -1,5 +1,5 @@
-import React, {Suspense} from "react";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import React from "react";
+import {BrowserRouter, HashRouter, Route, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {connect, Provider} from "react-redux";
 import './App.css';
@@ -13,9 +13,6 @@ import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {withSuspense} from "./hoc/withSuspense";
 
-// import DialogsContainer from "./components/Dialogs/DialogsContainer";
-// import ProfileContainer from "./components/Profile/ProfileContainer";
-// import Login from "./components/Login/Login";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const Login = React.lazy(() => import('./components/Login/Login'));
@@ -62,11 +59,11 @@ const AppContainer = compose(
 )(App);
 
 const SamuraiJSApp = props => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>;
+    </HashRouter>;
 }
 
 export default SamuraiJSApp;

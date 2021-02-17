@@ -5,7 +5,7 @@ import ProfileJob from "./ProfileJob/ProfileJob";
 import ProfileAvatar from "./ProfileAvatar/ProfileAvatar";
 import ProfileAbout from "./ProfileAbout/ProfileAbout";
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({isOwner, profile, savePhoto}) => {
     return (
         <div>
             <div>
@@ -14,7 +14,7 @@ const ProfileInfo = ({profile}) => {
             </div>
             <div className={classes.profileUser}>
                 <ProfileAvatar fullName={profile.fullName} status={"bla bla bla"} photos={profile.photos}
-                               userId={profile.userId}/>
+                               userId={profile.userId} isOwner={isOwner} savePhoto={savePhoto}/>
                 <ProfileAbout aboutMe={profile.aboutMe}/>
                 <ProfileJob lookingForAJob={profile.lookingForAJob}
                             lookingForAJobDescription={profile.lookingForAJobDescription}/>
