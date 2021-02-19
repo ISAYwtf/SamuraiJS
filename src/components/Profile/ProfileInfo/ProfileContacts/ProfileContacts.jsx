@@ -1,20 +1,21 @@
 import React from "react";
 import classes from "./ProfileContacts.module.css";
 
-const ProfileContacts = ({contacts}) => {
-    const contactsList = [];
+const ProfileContacts = ({contacts, ...props}) => {
+    const contactsListJSX = [];
+
     for (let link in contacts) {
         if (contacts[link]) {
-            contactsList.push(<a href={`${contacts[link]}`}>{link}</a>)
+            contactsListJSX.push(<a href={`${contacts[link]}`}>{link}</a>)
         }
     }
 
-    if (contactsList.length > 0) {
+    if (contactsListJSX.length > 0) {
         return (
             <div className={classes.profileContacts}>
                 <h2>Contacts</h2>
                 <div className={classes.contactsSocial}>
-                    {contactsList}
+                    {contactsListJSX}
                 </div>
             </div>
         )

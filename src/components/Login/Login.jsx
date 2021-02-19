@@ -7,13 +7,20 @@ import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import classes from "./Login.module.css";
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div><Field type="text" placeholder={"Email"} name={"email"} validate={[required]} component={Input}/></div>
             <div><Field type="password" placeholder={"Password"} name={"password"} validate={[required]}
                         component={Input}/></div>
             <label><Field component={Input} type="checkbox" name={"rememberMe"}/>Remember Me</label>
+            {captchaUrl
+                ? <div>
+                    <img src={captchaUrl}/>
+                    <Field component={Input} placeholder={"Input symbols from the image"} name={"captcha"}
+                           type={"text"}/>
+                </div>
+                : ""}
             {error
                 ? <div className={classes.error}>{error}</div>
                 : ""
@@ -25,29 +32,29 @@ const LoginForm = ({handleSubmit, error}) => {
     )
 }
 
-const LoginReduxForm = reduxForm({
-    form: "login"
-})(LoginForm);
+const LoginReduxForm = reduxForm({form: "login"})(LoginForm);
 
-const Login = ({login, isAuth}) => {
+const Login = ({login, isAuth, captchaUrl}) => {
     const onSubmit = formData => {
-        login(formData.email, formData.password, formData.rememberMe);
+        const {email, password, rememberMe, captcha} = formData;
+        login(email, password, rememberMe, captcha);
     }
 
     if (isAuth) {
-        return <Redirect to={"/profile"} />;
+        return <Redirect to={"/profile"}/>;
     }
 
     return (
         <div>
             <h2>Sign in</h2>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 })
 
 const mapDispatchToProps = {

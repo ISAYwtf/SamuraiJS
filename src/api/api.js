@@ -36,6 +36,9 @@ export const profileAPI = {
     updateStatus(status) {
         return server.put(`profile/status`, {status}).then(response => response.data);
     },
+    updateProfile(profile) {
+        return server.put(`profile`, profile).then(response => response.data);
+    },
     savePhoto(file) {
         const formData = new FormData();
         const headers = {
@@ -54,14 +57,19 @@ export const authAPI = {
             withCredentials: true
         }).then(response => response.data);
     },
-    login(email, password, rememberMe = false) {
+    login(email, password, rememberMe = false, captcha) {
         return server.post(`auth/login/`,
-            {email, password, rememberMe},
-            {
-                withCredentials: true
-            }).then(response => response.data);
+            {email, password, rememberMe, captcha})
+            .then(response => response.data);
     },
     logout() {
-        return server.delete(`auth/login/`).then(response => response.data);
+        return server.delete(`auth/login/`)
+            .then(response => response.data);
     }
+}
+
+export const securityAPI = {
+    getCaptchaUrl() {
+        return server.get(`security/get-captcha-url`).then(response => response.data);
+    },
 }
