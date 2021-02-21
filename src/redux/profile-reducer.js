@@ -1,19 +1,21 @@
 import {profileAPI, usersAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
+import {reset, stopSubmit} from "redux-form";
 
-const ADD_POST = 'ADD-POST';
-const DELETE_POST = 'DELETE-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const SET_STATUS = 'SET-STATUS';
-const SET_FULLNAME = 'SET-FULLNAME';
-const SET_PHOTO = 'SET-PHOTO';
+const ADD_POST = 'samurai-network/profile/ADD-POST';
+const DELETE_POST = 'samurai-network/profile/DELETE-POST';
+const SET_USER_PROFILE = 'samurai-network/profile/SET-USER-PROFILE';
+const SET_STATUS = 'samurai-network/profile/SET-STATUS';
+const SET_FULLNAME = 'samurai-network/profile/SET-FULLNAME';
+const SET_PHOTO = 'samurai-network/profile/SET-PHOTO';
+const TOGGLE_IS_FETCHING = 'samurai-network/profile/TOGGLE-IS-FETCHING';
 
 const initialState = {
     posts: [
         {id: 1, post: 'Hi how are you', likesCount: 15},
     ],
     status: null,
-    profile: null
+    profile: null,
+    isFetching: false
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -54,6 +56,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             };
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            };
         default:
             return state;
     }
@@ -65,6 +72,12 @@ export const setUserProfile = profile => ({type: SET_USER_PROFILE, profile});
 export const setStatus = status => ({type: SET_STATUS, status});
 export const setFullName = fullName => ({type: SET_FULLNAME, fullName});
 export const savePhotoSuccess = photos => ({type: SET_PHOTO, photos});
+export const toggleIsFetching = isFetching => ({type: TOGGLE_IS_FETCHING, isFetching});
+
+export const addPostTC = newPost => dispatch => {
+    dispatch(addPost(newPost));
+    dispatch(reset('postForm'));
+}
 
 export const getProfile = userId => async dispatch => {
     const data = await usersAPI.getProfile(userId);
@@ -77,11 +90,16 @@ export const getUserStatus = userId => async dispatch => {
 };
 
 export const updateStatus = status => async dispatch => {
-    const data = await profileAPI.updateStatus(status);
+    try {
+        const data = await profileAPI.updateStatus(status);
 
-    if (data.resultCode === 0) {
-        dispatch(setStatus(status));
+        if (data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    } catch (e) {
+
     }
+
 };
 
 export const savePhoto = file => async dispatch => {

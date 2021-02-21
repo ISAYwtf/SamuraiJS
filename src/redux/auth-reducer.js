@@ -1,5 +1,5 @@
 import {authAPI, securityAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
+import {reset, stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'samurai-network/auth/SET-USER-DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET-CAPTCHA-URL-SUCCESS';
@@ -53,8 +53,10 @@ export const login = (email, password, rememberMe, captcha = null) => async disp
 
     if (data.resultCode === 0) {
         dispatch(getMe());
+        dispatch(reset('login'));
     } else {
         if (data.resultCode === 10) {
+            dispatch(reset('login'));
             dispatch(getCaptcha());
         }
         let message = data.messages.length > 0 ? data.messages[0] : "Email or password are incorrect.";

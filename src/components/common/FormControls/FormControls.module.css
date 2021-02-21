@@ -3,7 +3,7 @@
 }
 
 .input {
-    /*box-sizing: border-box;*/
+    padding: 5px;
     border: 2px solid darkslateblue;
     border-radius: 0;
     width: 100%;

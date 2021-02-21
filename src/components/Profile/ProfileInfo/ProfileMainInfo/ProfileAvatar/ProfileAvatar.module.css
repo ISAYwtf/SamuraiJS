@@ -1,0 +1,22 @@
+.profileImageWrap {
+}
+
+.profileImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imgName {
+    background-color: darkslateblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 2em;
+
+    font-size: 5em;
+    color: white;
+}

@@ -1,17 +1,17 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/object-helpers";
 
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const TOGGLE_IS_FOLLOWING = 'TOGGLE-IS-FOLLOWING';
+const FOLLOW = 'samurai-network/users/FOLLOW';
+const UNFOLLOW = 'samurai-network/users/UNFOLLOW';
+const SET_USERS = 'samurai-network/users/SET-USERS';
+const SET_CURRENT_PAGE = 'samurai-network/users/SET-CURRENT-PAGE';
+const SET_TOTAL_COUNT = 'samurai-network/users/SET-TOTAL-COUNT';
+const TOGGLE_IS_FETCHING = 'samurai-network/users/TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FOLLOWING = 'samurai-network/users/TOGGLE-IS-FOLLOWING';
 
 const initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 8,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,

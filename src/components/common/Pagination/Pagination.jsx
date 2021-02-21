@@ -1,8 +1,14 @@
 import React from 'react';
 import classes from './Pagination.module.css';
 
+
+const onPageChanged = (pageNumber, pageSize, setCurrentPage, getUsers) => {
+    setCurrentPage(pageNumber);
+    getUsers(pageNumber, pageSize);
+}
+
 const Pagination = (props) => {
-    const {totalItemsCount, pageSize, currentPage, onPageChanged} = props;
+    const {totalItemsCount, pageSize, currentPage, setCurrentPage, getUsers} = props;
 
     const createPagination = () => {
         const pagesCount = Math.ceil(totalItemsCount / pageSize);
@@ -20,34 +26,36 @@ const Pagination = (props) => {
             pagination = pages.map((el, i, arr) => {
                 if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length)) {
 
-                    return <span onClick={() => onPageChanged(el)}
+                    return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
                                  className={currentPage === el ? classes.paginationActive : ""}
                                  key={el}>{el}</span>
 
                 } else if (currentPage === el) {
 
-                    return <span onClick={() => onPageChanged(el)}
+                    return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
                                  className={classes.paginationActive} key={el}>{el}</span>
 
                 } else if (el === currentPage - 1 || el === currentPage + 1) {
 
                     if (el < currentPage) {
-                        return <span onClick={() => onPageChanged(el)} key={el}>{"<"}</span>
+                        return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
+                                     key={el}>{"<"}</span>
                     } else {
-                        return <span onClick={() => onPageChanged(el)} key={el}>{">"}</span>
+                        return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
+                                     key={el}>{">"}</span>
                     }
 
                 } else {
                     paginationCounter++;
 
                     if (paginationCounter <= 100) {
-                            return "."
+                        return "."
                     }
                 }
             })
         } else {
             pagination = pages.map(el => {
-                return <span onClick={() => onPageChanged(el)}
+                return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
                              className={currentPage === el ? classes.paginationActive : ""}>{el}</span>
             })
         }

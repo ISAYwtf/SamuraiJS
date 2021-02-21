@@ -17,11 +17,6 @@
     padding: 0 10px 5px;
     margin: 0 auto 10px;
     width: 100px;
-
-    /*border-color: darkslateblue;*/
-    /*border-style: solid;*/
-    /*border-width: 0 1px 3px;*/
-    /*border-radius: 0 0 3px 3px;*/
 }
 
 .messages {
@@ -52,14 +47,8 @@
 }
 
 .textarea input, .add {
-    box-sizing: border-box;
-    border-radius: 0;
     height: 40px;
     font-size: 1.15em;
-}
-
-.add:focus {
-    outline: none;
 }
 
 .textarea {
@@ -73,13 +62,5 @@
 
 .add {
     flex-grow: 0;
-    border: none;
     width: 150px;
-    background-color: darkslateblue;
-    color: white;
-    cursor: pointer;
-}
-
-.add:hover {
-    background: #39306c;
 }

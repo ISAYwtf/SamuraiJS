@@ -6,17 +6,18 @@ import classes from './Dialogs.module.css';
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormControls/FormControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
+import Button from "../common/Button";
 
 const maxLength300 = maxLengthCreator(300);
 
-const Dialogs = ({sendMessage, dialogsPage}) => {
+const Dialogs = ({sendMessageTC, dialogsPage}) => {
     const {dialogs, messages} = dialogsPage;
 
     const dialogsElements = dialogs.map(el => <DialogItem name={el.name} key={el.id} id={el.id}/>);
     const messagesElements = messages.map(el => <Message id={el.id} mine={el.mine} key={el.id} message={el.message}/>);
 
     const addNewMessage = values => {
-        sendMessage(values.messageBody);
+        sendMessageTC(values.messageBody);
     }
 
     return (
@@ -36,12 +37,12 @@ const Dialogs = ({sendMessage, dialogsPage}) => {
     )
 };
 
-const AddMessageForm = props => {
+const AddMessageForm = ({handleSubmit}) => {
     return (
-        <form className={classes.inputs} onSubmit={props.handleSubmit}>
-            <Field component={Input} type="text" name={"messageBody"} placeholder={`Type your message...`}
+        <form className={classes.inputs} onSubmit={handleSubmit}>
+            <Field component={Input} name={"messageBody"} placeholder={`Type your message...`}
                    className={classes.textarea} validate={[required, maxLength300]}/>
-            <button name={"messageSubmit"} type="submit" className={classes.add}>Send</button>
+            <Button className={classes.add}>Send</Button>
         </form>
     )
 }

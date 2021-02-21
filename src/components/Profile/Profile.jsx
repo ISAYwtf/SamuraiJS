@@ -1,19 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import PostsContainer from "./MyPosts/PostsContainer";
 import Preloader from "../common/Preloader/Preloader";
+import Button from "../common/Button";
+import ProfileDataForm from "./ProfileInfo/ProfileDataForm/ProfileDataForm";
 
-const Profile = (props) => {
-    if (!props.profile) {
-        return <Preloader/>
+const Profile = ({isOwner, profile, ...props}) => {
+    const [editMode, setEditMode] = useState(false);
+
+    const activateEditMode = () => {
+        if (isOwner) {
+            setEditMode(true);
+        }
     }
+
+    const deActivateMode = formData => {
+        props.updateProfile(formData)
+            .then(() => setEditMode(false));
+    }
+
+    if (!profile) return <Preloader flag={!profile}/>
 
     return (
         <div>
-            <ProfileInfo isOwner={props.isOwner} profile={props.profile} savePhoto={props.savePhoto}
+            {!editMode
+                ? <ProfileInfo isOwner={isOwner} profile={profile} savePhoto={props.savePhoto}
                          updateProfile={props.updateProfile}/>
-            <MyPostsContainer/>
+                : <ProfileDataForm onSubmit={deActivateMode} profile={profile} initialValues={profile}/>}
+            {!editMode && isOwner
+                ? <Button attr={{"onClick": activateEditMode}}>Edit profile</Button>
+                : ""}
+            <PostsContainer/>
         </div>
     )
 }

@@ -9,3 +9,6 @@ export const maxLengthCreator = maxLength => value => {
 
     return undefined;
 }
+
+export const composeValidators = (...validators) => value =>
+    validators.reduce((error, validator) => error || validator(value), undefined);

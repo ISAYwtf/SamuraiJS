@@ -1,15 +1,16 @@
 import React from "react";
 import Post from "./Post/Post";
 
-import classes from './MyPosts.module.css';
+import classes from './Posts.module.css';
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormControls/FormControls";
+import Button from "../../common/Button";
 
 const maxLength300 = maxLengthCreator(300);
 
-const MyPosts = React.memo(props => {
-    let {addPost, profilePage} = props;
+const Posts = React.memo(props => {
+    let {addPostTC, profilePage} = props;
 
     const {posts} = profilePage;
 
@@ -18,7 +19,7 @@ const MyPosts = React.memo(props => {
     ));
 
     const addNewPost = values => {
-        addPost(values.newPost);
+        addPostTC(values.newPost);
     };
 
     return (
@@ -37,11 +38,11 @@ const AddPostForm = props => {
         <form onSubmit={props.handleSubmit} className={classes.inputWrap}>
             <Field component={Textarea} name={"newPost"} placeholder={`Type your post...`}
                    className={classes.textarea} validate={[required, maxLength300]}/>
-            <button className={classes.add}>Add post</button>
+            <Button className={classes.add}>Add post</Button>
         </form>
     )
 };
 
 const AddPostFormRedux = reduxForm({form: "postForm"})(AddPostForm);
 
-export default MyPosts;
+export default Posts;

@@ -1,7 +1,6 @@
-
 .profileMainInfo {
     display: flex;
-    height: 180px;
+    height: max-content;
     width: 100%;
     padding: 0 0 10px;
     font-size: 1.2em;
@@ -10,25 +9,6 @@
 .profileAvatar {
     height: 100%;
     width: max-content;
-    background-color: darkslateblue;
-}
-
-
-.profileAvatar span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100%;
-    width: 2em;
-
-    font-size: 5em;
-    color: white;
-}
-.profileAvatar img {
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
 }
 
 .profileStatus {
@@ -48,4 +28,21 @@
 
 .profileDesc {
 
+}
+
+.selectImgBtn > input {
+    display: none;
+}
+
+.selectImgBtn > span {
+    display: block;
+    background-color: darkslateblue;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.selectImgBtn > span:hover {
+    background-color: #39306c;
 }

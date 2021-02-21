@@ -14,18 +14,13 @@ const FormControl = props => {
     )
 }
 
-export const Textarea = props => {
-    return (
-        <FormControl {...props}>
-            <textarea {...props.input} className={classes.input} placeholder={props.placeholder}/>
-        </FormControl>
-    )
-}
+export const Textarea = props =>
+    <FormControl {...props}>
+        <textarea {...props.input} className={classes.input} placeholder={props.placeholder}/>
+    </FormControl>
 
-export const Input = props => {
-    return (
-        <FormControl {...props}>
-            <input {...props.input} className={classes.input} placeholder={props.placeholder} type={props.type}/>
-        </FormControl>
-    )
-}
+export const Input = props =>
+    <FormControl {...props}>
+        <input {...props.input} className={classes.input} {...props.attr}
+               placeholder={props.placeholder || ""} type={props.type || "text"}/>
+    </FormControl>

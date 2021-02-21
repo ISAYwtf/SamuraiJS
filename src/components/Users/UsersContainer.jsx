@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {followTo, getUsers, setCurrentPage, unFollowTo} from '../../redux/users-reducer';
 import Users from './Users';
@@ -10,43 +10,19 @@ import {
     getUsersState
 } from "../../redux/users-selectors";
 
-class UsersContainer extends React.Component {
-    componentDidMount() {
-        const {currentPage, pageSize} = this.props
-        this.props.getUsers(currentPage, pageSize);
-    }
+const UsersContainer = props => {
+    useEffect(() => {
+        const {currentPage, pageSize} = props
+        props.getUsers(currentPage, pageSize);
+    }, [props.currentPage])
 
-    onPageChanged = pageNumber => {
-        const {pageSize} = this.props;
-        this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, pageSize);
-    }
-
-    render = () => {
-        const {
-            totalUsersCount,
-            pageSize,
-            users,
-            unFollowTo,
-            followTo,
-            currentPage,
-            isFetching,
-            isFollowing
-        } = this.props;
-        return <>
-            <Users totalItemsCount={totalUsersCount} pageSize={pageSize}
-                   users={users} unFollowTo={unFollowTo} followTo={followTo}
-                   currentPage={currentPage} onPageChanged={this.onPageChanged}
-                   isFetching={isFetching} isFollowing={isFollowing}
-            />
-        </>
-    }
+    return <Users {...props}/>
 }
 
 const mapStateToProps = state => ({
     users: getUsersState(state),
     pageSize: getPageSizeState(state),
-    totalUsersCount: getTotalUsersCountState(state),
+    totalItemsCount: getTotalUsersCountState(state),
     currentPage: getCurrentPageState(state),
     isFetching: getIsFetchingState(state),
     isFollowing: getIsFollowingState(state)

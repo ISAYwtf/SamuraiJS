@@ -1,41 +1,47 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormControls/FormControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import classes from "./Login.module.css";
+import Button from "../common/Button";
+import {reduxForm, Field} from "redux-form";
 
-const LoginForm = ({handleSubmit, error, captchaUrl}) => {
-    return (
-        <form onSubmit={handleSubmit}>
-            <div><Field type="text" placeholder={"Email"} name={"email"} validate={[required]} component={Input}/></div>
-            <div><Field type="password" placeholder={"Password"} name={"password"} validate={[required]}
-                        component={Input}/></div>
-            <label><Field component={Input} type="checkbox" name={"rememberMe"}/>Remember Me</label>
-            {captchaUrl
-                ? <div>
-                    <img src={captchaUrl}/>
-                    <Field component={Input} placeholder={"Input symbols from the image"} name={"captcha"}
-                           type={"text"}/>
-                </div>
-                : ""}
-            {error
-                ? <div className={classes.error}>{error}</div>
-                : ""
-            }
-            <div>
-                <button>Login</button>
+const LoginForm = ({handleSubmit, captchaUrl, error}) =>
+    <form className={classes.form} onSubmit={handleSubmit}>
+        <div className={classes.field}>
+            <Field placeholder={"Email"} name={"email"}
+                   validate={[required]} component={Input}/>
+        </div>
+        <div className={classes.field}>
+            <Field type="password" placeholder={"Password"} name={"password"}
+                   validate={[required]}
+                   component={Input}/>
+        </div>
+        <label className={classes.rememberMe}>
+            <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
+            <p>Remember Me</p>
+        </label>
+        {captchaUrl
+            ? <div className={classes.captcha}>
+                <img src={captchaUrl}/>
+                <Field component={Input} placeholder={"Input symbols from the image"} name={"captcha"}/>
             </div>
-        </form>
-    )
-}
+            : ""}
+        {error
+            ? <div className={classes.error}>{error}</div>
+            : ""
+        }
+        <div>
+            <Button>Login</Button>
+        </div>
+    </form>
 
-const LoginReduxForm = reduxForm({form: "login"})(LoginForm);
+const LoginFormRedux = reduxForm({form: "login"})(LoginForm);
 
 const Login = ({login, isAuth, captchaUrl}) => {
-    const onSubmit = formData => {
+    const submitData = formData => {
         const {email, password, rememberMe, captcha} = formData;
         login(email, password, rememberMe, captcha);
     }
@@ -46,8 +52,8 @@ const Login = ({login, isAuth, captchaUrl}) => {
 
     return (
         <div>
-            <h2>Sign in</h2>
-            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+            <h2 className={classes.formTitle}>Sign in</h2>
+            <LoginFormRedux onSubmit={submitData} captchaUrl={captchaUrl}/>
         </div>
     )
 }

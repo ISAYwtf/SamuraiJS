@@ -1,0 +1,13 @@
+.form {
+    margin-bottom: 20px;
+}
+
+.contactItem {
+    display: block;
+    margin: 10px 0;
+}
+
+.contactItemTitle {
+    display: block;
+    margin-bottom: 5px;
+}

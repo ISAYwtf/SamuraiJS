@@ -1,28 +1,11 @@
 .app-wrapper {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     width: 1200px;
     max-width: 90vw;
-    grid-template-rows: 80px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
-
-    grid-template-areas:
-    "h h"
-    "n c";
-
-    max-height: 98vh;
 }
 
-.app-wrapper-content {
-    grid-area: c;
-    border-radius: 5px;
-    height: 80vh;
-    max-width: 100%;
-    overflow-y: scroll;
+.app-wrapper * {
+    box-sizing: border-box;
 }
-
-.app-wrapper-content::-webkit-scrollbar {
-    display: none;
-}
-
