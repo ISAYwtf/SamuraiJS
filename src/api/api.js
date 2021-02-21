@@ -28,16 +28,20 @@ export const usersAPI = {
 
 export const profileAPI = {
     getProfile(userId) {
-        return server.get(`profile/${userId}`).then(response => response.data);
+        return server.get(`profile/${userId}`)
+            // .then(response => response.data);
     },
     getStatus(userId) {
-        return server.get(`profile/status/${userId}`).then(response => response.data);
+        return server.get(`profile/status/${userId}`)
+            .then(response => response.data);
     },
     updateStatus(status) {
-        return server.put(`profile/status`, {status}).then(response => response.data);
+        return server.put(`profile/status`, {status})
+            .then(response => response.data);
     },
     updateProfile(profile) {
-        return server.put(`profile`, profile).then(response => response.data);
+        return server.put(`profile`, profile)
+            .then(response => response.data);
     },
     savePhoto(file) {
         const formData = new FormData();

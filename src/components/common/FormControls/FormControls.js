@@ -21,6 +21,6 @@ export const Textarea = props =>
 
 export const Input = props =>
     <FormControl {...props}>
-        <input {...props.input} className={classes.input} {...props.attr}
+        <input {...props.input} className={`${classes.input} ${props.className}`} {...props.attr}
                placeholder={props.placeholder || ""} type={props.type || "text"}/>
     </FormControl>

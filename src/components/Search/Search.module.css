@@ -1,0 +1,28 @@
+.searchBlock {
+    width: 100%;
+    height: max-content;
+    background-color: darkslateblue;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.searchTitle {
+    margin: 0 0 10px;
+    font-size: 1em;
+}
+
+.form {
+    text-align: center;
+    padding: 5px 10px;
+}
+
+.form:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.input {
+    background-color: #39306c;
+    color: white;
+}

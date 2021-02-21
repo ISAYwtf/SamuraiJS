@@ -1,5 +1,6 @@
 import {profileAPI, usersAPI} from "../../api/api";
 import {reset, stopSubmit} from "redux-form";
+import {toggleHasError} from "../App/app-reducer";
 
 const ADD_POST = 'samurai-network/profile/ADD-POST';
 const DELETE_POST = 'samurai-network/profile/DELETE-POST';
@@ -80,8 +81,16 @@ export const addPostTC = newPost => dispatch => {
 }
 
 export const getProfile = userId => async dispatch => {
-    const data = await usersAPI.getProfile(userId);
-    dispatch(setUserProfile(data));
+    try {
+        const response = await usersAPI.getProfile(userId);
+        dispatch(setUserProfile(response.data));
+    } catch (e) {
+        let msg = e.response.data.message;
+        if (e.response.status >= 400 && e.response.status <= 500) {
+            msg = "User is not exist";
+        }
+        dispatch(toggleHasError([true, msg]));
+    }
 };
 
 export const getUserStatus = userId => async dispatch => {

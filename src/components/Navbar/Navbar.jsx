@@ -1,15 +1,16 @@
 import React from "react";
 import classes from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import FriendsList from "./FriendsList/FriendsList";
-import {connect} from "react-redux";
-import {getSidebarFriends} from "../../redux/Sidebar/sidebar-selectors";
 
-const mapStateToProps = (state) => ({
-    friends: getSidebarFriends(state)
-})
+// import FriendsList from "./FriendsList/FriendsList";
+// import {connect} from "react-redux";
+// import {getSidebarFriends} from "../../redux/Sidebar/sidebar-selectors";
 
-const FriendsListContainer = connect(mapStateToProps)(FriendsList);
+// const mapStateToProps = (state) => ({
+//     friends: getSidebarFriends(state)
+// })
+
+// const FriendsListContainer = connect(mapStateToProps)(FriendsList);
 
 const Navbar = () => {
     return (
@@ -29,7 +30,7 @@ const Navbar = () => {
             <NavLink to={`/settings`} activeClassName={classes.active} className={classes.item}>
                 Settings
             </NavLink>
-            <FriendsListContainer />
+            {/*<FriendsListContainer />*/}
         </nav>
     )
 }
