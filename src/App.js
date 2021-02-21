@@ -29,12 +29,11 @@ const AppContainer = compose(
     connect(mapStateToProps, mapDispatchToProps)
 )(App);
 
-const SamuraiJSApp = props => {
-    return <BrowserRouter basename={process.env.PUBLIC_URL}>
+const SamuraiJSApp = props =>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>;
-}
+    </BrowserRouter>
 
 export default SamuraiJSApp;
