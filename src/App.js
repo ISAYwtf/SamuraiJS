@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {BrowserRouter, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {connect, Provider} from "react-redux";
@@ -9,32 +9,19 @@ import Preloader from "./components/common/Preloader/Preloader";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Body from "./components/Body";
 
-class App extends React.Component {
-    componentDidMount = () => {
-        this.props.initializeApp();
-    };
+const App = props => {
+    useEffect(() => props.initializeApp(), [])
 
-    render = () => {
-        if (!this.props.initialized) {
-            return <Preloader/>
-        }
+    if (!props.initialized) return <Preloader/>
 
-        return (
-            <div className='app-wrapper'>
-                <HeaderContainer/>
-                <Body/>
-            </div>
-        )
-    };
+    return <div className='app-wrapper'>
+        <HeaderContainer/>
+        <Body/>
+    </div>
 }
 
-const mapStateToProps = state => ({
-    initialized: state.app.initialized
-})
-
-const mapDispatchToProps = {
-    initializeApp
-}
+const mapStateToProps = state => ({initialized: state.app.initialized})
+const mapDispatchToProps = {initializeApp}
 
 const AppContainer = compose(
     withRouter,

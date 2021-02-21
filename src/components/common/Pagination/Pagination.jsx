@@ -1,62 +1,70 @@
 import React from 'react';
 import classes from './Pagination.module.css';
 
-
 const onPageChanged = (pageNumber, pageSize, setCurrentPage, getUsers) => {
     setCurrentPage(pageNumber);
     getUsers(pageNumber, pageSize);
 }
 
-const Pagination = (props) => {
-    const {totalItemsCount, pageSize, currentPage, setCurrentPage, getUsers} = props;
+const PaginationItem = ({currentNumber, currentPage, pageSize, item = null, ...props}) =>
+    <span onClick={() => onPageChanged(currentNumber, pageSize, props.setCurrentPage, props.getUsers)}
+          className={currentPage === currentNumber ? classes.paginationActive : ""}
+          key={currentNumber}>
+        {item ? item : currentNumber}
+    </span>
+
+const Pagination = props => {
 
     const createPagination = () => {
-        const pagesCount = Math.ceil(totalItemsCount / pageSize);
+        const {totalItemsCount, pageSize, currentPage, setCurrentPage, getUsers} = props;
+
+        const pagesCount = Math.ceil(totalItemsCount / pageSize); // Количество страниц
         const pages = [];
 
-        let pagination;
-
         for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i);
+            pages.push(i); // Массив с числами для пагинатора
         }
 
-        if (pages.length > 20) {
-            let paginationCounter = 0;
+        let pagination; // Пагинатор
 
+        if (pages.length > 20) { // Если страниц больше 20
+            let paginationCounter = 0; // Создаем счетчик для непоказанных чисел в пагинаторе
+
+            // Далее возвращаем в переменную пагинатора массив с обернутыми числами в разметку
             pagination = pages.map((el, i, arr) => {
-                if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length)) {
 
-                    return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
-                                 className={currentPage === el ? classes.paginationActive : ""}
-                                 key={el}>{el}</span>
+                /* Если перебираемое число входит в первые или в последние три
+                * или является текущим элементом
+                * возвращаем элемент с числом */
+                if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length) || currentPage === el) {
 
-                } else if (currentPage === el) {
+                    return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
+                                           setCurrentPage={setCurrentPage} getUsers={getUsers}/>
 
-                    return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
-                                 className={classes.paginationActive} key={el}>{el}</span>
-
+                /* Иначе если текущее число стоит рядом с текущим элементом
+                * возвращаем стрелку влево или вправо, для клика на следующий элемент от текущего*/
                 } else if (el === currentPage - 1 || el === currentPage + 1) {
 
                     if (el < currentPage) {
-                        return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
-                                     key={el}>{"<"}</span>
+                        return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
+                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={"<"}/>
                     } else {
-                        return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
-                                     key={el}>{">"}</span>
+                        return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
+                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={">"}/>
                     }
 
                 } else {
-                    paginationCounter++;
+                    paginationCounter++; // Увеличиваем счетчик непоказанных чисел
 
-                    if (paginationCounter <= 100) {
-                        return "."
+                    if (paginationCounter <= 100) { // Если непоказанных чисел меньше 100
+                        return "." // Показываем точку
                     }
                 }
             })
-        } else {
+        } else { // Если страниц меньше 20, просто возвращаем массив обернутых в разметку чисел
             pagination = pages.map(el => {
-                return <span onClick={() => onPageChanged(el, pageSize, setCurrentPage, getUsers)}
-                             className={currentPage === el ? classes.paginationActive : ""}>{el}</span>
+                return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
+                                       setCurrentPage={setCurrentPage} getUsers={getUsers}/>
             })
         }
 

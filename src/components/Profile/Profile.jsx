@@ -9,9 +9,7 @@ const Profile = ({isOwner, profile, ...props}) => {
     const [editMode, setEditMode] = useState(false);
 
     const activateEditMode = () => {
-        if (isOwner) {
-            setEditMode(true);
-        }
+        if (isOwner) setEditMode(true);
     }
 
     const deActivateMode = formData => {
@@ -19,7 +17,7 @@ const Profile = ({isOwner, profile, ...props}) => {
             .then(() => setEditMode(false));
     }
 
-    if (!profile) return <Preloader flag={!profile}/>
+    if (!profile) return <Preloader/>
 
     return (
         <div>

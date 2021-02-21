@@ -27,7 +27,7 @@ const ProfileStatus = props => {
 
     const isOwner = !props.match.params.userId;
 
-    let [editMode, setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     const activateEditMode = () => {
         if (isOwner) {
