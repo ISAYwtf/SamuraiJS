@@ -3,9 +3,10 @@ import classes from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import FriendsList from "./FriendsList/FriendsList";
 import {connect} from "react-redux";
+import {getSidebarFriends} from "../../redux/Sidebar/sidebar-selectors";
 
 const mapStateToProps = (state) => ({
-    friends: state.sidebar.friends
+    friends: getSidebarFriends(state)
 })
 
 const FriendsListContainer = connect(mapStateToProps)(FriendsList);

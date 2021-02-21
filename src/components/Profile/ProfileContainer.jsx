@@ -1,11 +1,13 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfile, getUserStatus, savePhoto, toggleIsFetching, updateProfile} from "../../redux/profile-reducer";
+import {getProfile, getUserStatus, savePhoto, toggleIsFetching, updateProfile} from "../../redux/Profile/profile-reducer";
 import {withRouter} from "react-router";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import Preloader from "../common/Preloader/Preloader";
+import {getProfileFetching, getProfileState} from "../../redux/Profile/profile-selectors";
+import {getAuthorizedId, getIsAuth} from "../../redux/Auth/auth-selectors";
 
 const refreshProfile = async (id, authorizedUserId, getProfile, getUserStatus, history) => {
     let userId = id;
@@ -36,10 +38,10 @@ const ProfileContainer = props => {
 };
 
 const mapStateToProps = state => ({
-    profile: state.profilePage.profile,
-    authorizedUserId: state.auth.userId,
-    isAuth: state.auth.isAuth,
-    isFetching: state.profilePage.isFetching
+    profile: getProfileState(state),
+    authorizedUserId: getAuthorizedId(state),
+    isAuth: getIsAuth(state),
+    isFetching: getProfileFetching(state)
 });
 
 const mapDispatchToProps = {getProfile, getUserStatus, savePhoto, updateProfile, toggleIsFetching}

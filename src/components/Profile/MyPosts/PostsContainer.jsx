@@ -1,10 +1,11 @@
 import React from "react";
-import {addPostTC} from "../../../redux/profile-reducer";
+import {addPostTC} from "../../../redux/Profile/profile-reducer";
 import Posts from "./Posts";
 import {connect} from "react-redux";
+import {getProfilePageState} from "../../../redux/Profile/profile-selectors";
 
 const mapStateToProps = state => ({
-    profilePage: state.profilePage
+    profilePage: getProfilePageState(state)
 })
 
 const mapDispatchToProps = {addPostTC};

@@ -1,5 +1,5 @@
-import {usersAPI} from "../api/api";
-import {updateObjectInArray} from "../utils/object-helpers";
+import {usersAPI} from "../../api/api";
+import {updateObjectInArray} from "../../utils/object-helpers";
 
 const FOLLOW = 'samurai-network/users/FOLLOW';
 const UNFOLLOW = 'samurai-network/users/UNFOLLOW';

@@ -1,12 +1,12 @@
-import React from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {updateStatus} from "../../../../../redux/profile-reducer";
+import {updateStatus} from "../../../../../redux/Profile/profile-reducer";
 import ProfileStatus from "./ProfileStatus";
 import {withRouter} from "react-router-dom";
+import {getProfileStatus} from "../../../../../redux/Profile/profile-selectors";
 
 const mapStateToProps = state => ({
-    status: state.profilePage.status,
+    status: getProfileStatus(state),
 })
 
 const mapDispatchToProps = {updateStatus}

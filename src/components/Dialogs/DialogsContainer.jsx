@@ -1,11 +1,11 @@
-import React from 'react';
-import {sendMessageTC} from "../../redux/dialogs-reducer";
+import {sendMessageTC} from "../../redux/Dialogs/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getDialogsPage} from "../../redux/Dialogs/dialogs-selectors";
 
-const mapStateToProps = state => ({dialogsPage: state.dialogsPage});
+const mapStateToProps = state => ({dialogsPage: getDialogsPage(state)});
 
 const mapDispatchToProps = {sendMessageTC};
 

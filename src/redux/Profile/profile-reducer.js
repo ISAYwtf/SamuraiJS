@@ -1,4 +1,4 @@
-import {profileAPI, usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../../api/api";
 import {reset, stopSubmit} from "redux-form";
 
 const ADD_POST = 'samurai-network/profile/ADD-POST';

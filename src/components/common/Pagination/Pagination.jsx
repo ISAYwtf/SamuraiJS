@@ -37,14 +37,12 @@ const Pagination = props => {
                 * или является текущим элементом
                 * возвращаем элемент с числом */
                 if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length) || currentPage === el) {
-
                     return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
                                            setCurrentPage={setCurrentPage} getUsers={getUsers}/>
 
-                /* Иначе если текущее число стоит рядом с текущим элементом
-                * возвращаем стрелку влево или вправо, для клика на следующий элемент от текущего*/
+                    /* Иначе если текущее число стоит рядом с текущим элементом
+                    * возвращаем стрелку влево или вправо, для клика на следующий элемент от текущего*/
                 } else if (el === currentPage - 1 || el === currentPage + 1) {
-
                     if (el < currentPage) {
                         return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
                                                setCurrentPage={setCurrentPage} getUsers={getUsers} item={"<"}/>
@@ -52,7 +50,6 @@ const Pagination = props => {
                         return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
                                                setCurrentPage={setCurrentPage} getUsers={getUsers} item={">"}/>
                     }
-
                 } else {
                     paginationCounter++; // Увеличиваем счетчик непоказанных чисел
 
@@ -61,7 +58,9 @@ const Pagination = props => {
                     }
                 }
             })
-        } else { // Если страниц меньше 20, просто возвращаем массив обернутых в разметку чисел
+
+            // Если страниц меньше 20, просто возвращаем массив обернутых в разметку чисел
+        } else {
             pagination = pages.map(el => {
                 return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
                                        setCurrentPage={setCurrentPage} getUsers={getUsers}/>

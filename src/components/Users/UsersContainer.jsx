@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {followTo, getUsers, setCurrentPage, unFollowTo} from '../../redux/users-reducer';
+import {followTo, getUsers, setCurrentPage, unFollowTo} from '../../redux/Users/users-reducer';
 import Users from './Users';
 import {compose} from "redux";
 import {
@@ -8,7 +8,7 @@ import {
     getPageSizeState,
     getTotalUsersCountState,
     getUsersState
-} from "../../redux/users-selectors";
+} from "../../redux/Users/users-selectors";
 
 const UsersContainer = props => {
     useEffect(() => {

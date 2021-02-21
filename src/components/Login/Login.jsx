@@ -2,11 +2,12 @@ import React from "react";
 import {Input} from "../common/FormControls/FormControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
-import {login} from "../../redux/auth-reducer";
+import {login} from "../../redux/Auth/auth-reducer";
 import {Redirect} from "react-router-dom";
 import classes from "./Login.module.css";
 import Button from "../common/Button";
 import {reduxForm, Field} from "redux-form";
+import {getAuthCaptcha, getIsAuth} from "../../redux/Auth/auth-selectors";
 
 const LoginForm = ({handleSubmit, captchaUrl, error}) =>
     <form className={classes.form} onSubmit={handleSubmit}>
@@ -59,8 +60,8 @@ const Login = ({login, isAuth, captchaUrl}) => {
 }
 
 const mapStateToProps = state => ({
-    isAuth: state.auth.isAuth,
-    captchaUrl: state.auth.captchaUrl
+    isAuth: getIsAuth(state),
+    captchaUrl: getAuthCaptcha(state)
 })
 
 const mapDispatchToProps = {

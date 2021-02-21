@@ -1,4 +1,4 @@
-import {authAPI, securityAPI} from "../api/api";
+import {authAPI, securityAPI} from "../../api/api";
 import {reset, stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'samurai-network/auth/SET-USER-DATA';
