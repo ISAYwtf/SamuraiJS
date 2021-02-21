@@ -20,4 +20,4 @@ Actually ~~posts~~, ~~messages~~, ~~news~~, ~~music~~, ~~settings~~ and ~~friend
 
 But you can **follow** someone and **view** their profile.
 
-*In the future, users will be able to write messages to each other.*
+*In the future, users will be able to write messages to each other.* 
