@@ -1,6 +1,6 @@
 .friends {
     margin-top: 100px;
-    color: white;
+    color: var(--color-txt-dark);
     padding: 10px;
 }
 
@@ -15,20 +15,18 @@
 }
 
 .item {
-    box-sizing: border-box;
     border-radius: 50px;
-    border: 1px solid #39306c;
+    border: 1px solid var(--color-border-dark);
     overflow: hidden;
 
     margin: 5px;
     height: 40px;
     width: 40px;
-    cursor: pointer;
     transition: 0.1s;
 }
 
 .item:hover {
-    border: 3px solid #39306c;
+    border: 3px solid var(--color-border-dark);
     /*transform: scale(0.95);*/
 }
 

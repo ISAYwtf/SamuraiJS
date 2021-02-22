@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ProfileMainInfo.module.css";
 import ProfileStatusContainer from "./ProfileStatus/ProfileStatusContainer";
 import ProfileAvatar from "./ProfileAvatar";
+import Button from "../../../common/Button";
 
 const SelectPhotoButton = ({isOwner, savePhoto}) => {
     let selectMsg = "Select your image";
@@ -16,7 +17,7 @@ const SelectPhotoButton = ({isOwner, savePhoto}) => {
 
     if (isOwner) {
         return <label className={classes.selectImgBtn}>
-            <span>{selectMsg}</span>
+            <span className={classes.button}>{selectMsg}</span>
             <input type={"file"} onChange={onSelectMainPhoto}/>
         </label>
     } else {

@@ -1,8 +1,8 @@
 .button {
-    border: none;
-    background: darkslateblue;
+    border: 1px solid var(--color-border-dark);
+    background: var(--color-bg-btn-dark);
 
-    color: white;
+    color: var(--color-txt-dark);
 
     width: 100px;
     height: 30px;
@@ -11,7 +11,8 @@
 }
 
 .button:hover {
-    background: #39306c;
+    background: var(--color-bg-btn-hover-dark);
+    border: 1px solid var(--color-border-hover);
 }
 
 .button:focus {

@@ -2,12 +2,13 @@ import React from "react";
 import classes from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import Button from "../common/Button";
+import logo from "./../../logo.svg";
 
 const Header = ({isAuth, login, logout}) => {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
-                <img src="https://www.freelogodesign.org/Content/img/logo-ex-7.png" alt="logo"/>
+                <img src={logo} alt="logo"/>
             </div>
             <div className={classes.login}>
                 {isAuth

@@ -14,8 +14,9 @@
 }
 
 .error {
-    background-color: red;
-    color: white;
+    background-color: var(--color-error-bg-dark);
+    color: var(--color-error-txt-dark);
+    border: 1px solid var(--color-error-border-dark);
     padding: 5px;
     margin-bottom: 10px;
 }

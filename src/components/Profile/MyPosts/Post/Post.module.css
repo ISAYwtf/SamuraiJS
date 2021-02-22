@@ -4,8 +4,8 @@
     padding: 10px;
     margin: 10px 0;
 
-    background: darkslateblue;
-    color: white;
+    background: var(--color-bg-select-dark);
+    color: var(--color-txt-dark);
 }
 
 .post p {

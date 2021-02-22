@@ -1,10 +1,10 @@
 .message {
-    background-color: darkslateblue;
+    background-color: var(--color-bg-select-dark);
     width: fit-content;
     max-width: 250px;
     padding: 10px 15px;
     /*border-radius: 100px;*/
-    color: white;
+    color: var(--color-txt-active-dark);
     margin: 5px 0;
 }
 
@@ -15,7 +15,7 @@
 .right {
     align-self: flex-end;
     background: none;
-    color: darkslateblue;
-    border: 2px solid darkslateblue;
+    color: var(--color-txt-dark);
+    border: 2px solid var(--color-border-dark);
 }
 

@@ -1,7 +1,7 @@
 .dialog {
     width: 100px;
 
-    color: darkslateblue;
+    color: var(--color-txt-dark);
     text-decoration: none;
 
     padding: 5px 10px;
@@ -12,11 +12,10 @@
 }
 
 .dialog.active {
-    background-color: #39306c;
-    color: white;
+    background-color: var(--color-bg-select-dark);
+    color: var(--color-txt-active-dark);
 }
 
 .dialog:hover {
-    background-color: #39306c;
-    color: white;
+    background-color: var(--color-bg-select-dark);
 }

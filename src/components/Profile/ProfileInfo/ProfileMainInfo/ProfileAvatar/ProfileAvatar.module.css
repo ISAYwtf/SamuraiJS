@@ -9,7 +9,7 @@
 }
 
 .imgName {
-    background-color: darkslateblue;
+    background-color: var(--color-bg-select-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,5 +18,5 @@
     width: 2em;
 
     font-size: 5em;
-    color: white;
+    color: var(--color-txt-dark);
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './Users.module.css';
 import {NavLink} from "react-router-dom";
 
+// TODO Исправить редирект при клике на FOLLOW
+
 const UserImage = ({img, name, userId}) =>
     <div className={classes.avatarImage}>
         {img

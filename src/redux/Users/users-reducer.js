@@ -11,7 +11,7 @@ const TOGGLE_IS_FOLLOWING = 'samurai-network/users/TOGGLE-IS-FOLLOWING';
 
 const initialState = {
     users: [],
-    pageSize: 8,
+    pageSize: 7,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,

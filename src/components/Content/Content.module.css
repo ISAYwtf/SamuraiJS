@@ -4,7 +4,7 @@
 
     max-height: 88vh;
     overflow-y: scroll;
-    border-radius: 5px;
+    border-radius: var(--radius-border);
     width: 100%;
     min-width: 500px;
     min-height: 500px;

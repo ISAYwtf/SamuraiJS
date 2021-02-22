@@ -6,17 +6,18 @@
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--color-bg-muted);
 }
 
 .message {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-error-txt-dark);
     margin: 0 auto;
     width: fit-content;
     height: fit-content;
     padding: 30px 50px;
-    background-color: rgba(255, 0, 0, 0.6);
+    background-color: var(--color-error-bg-dark);
+    border: 1px solid var(--color-error-border-dark);
 }

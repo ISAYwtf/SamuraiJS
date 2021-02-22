@@ -1,6 +1,6 @@
 .pagination {
     position: sticky;
-    bottom: 30px;
+    bottom: 0;
 
     width: 100%;
     height: max-content;
@@ -17,7 +17,7 @@
     height: max-content;
 
     color: white;
-    background-color: rgba(72, 61, 139, 0.7);
+    background-color: var(--color-bg-input-dark);
     border-radius: 100px;
 }
 
@@ -38,9 +38,9 @@
 }
 
 .paginationWrap span:hover {
-    background-color: rgba(57, 48, 108, 0.9);
+    background-color: var(--color-bg-btn-hover-dark);
 }
 
 .paginationActive {
-    background-color: rgba(57, 48, 108, 0.6);
+    border: 1px solid var(--color-border-hover);
 }

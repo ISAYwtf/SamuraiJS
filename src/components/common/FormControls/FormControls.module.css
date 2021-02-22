@@ -4,7 +4,9 @@
 
 .input {
     padding: 5px;
-    border: 2px solid darkslateblue;
+    border: 2px solid var(--color-border-dark);
+    color: var(--color-txt-dark);
+    background-color: var(--color-bg-input-dark);
     border-radius: 0;
     width: 100%;
     height: 100%;
@@ -22,34 +24,23 @@
 }
 
 .error .input {
-    border-color: red;
+    border-color: var(--color-error-border-dark);
 }
 
 .errorMessage {
     position: absolute;
-    top: 0;
-    right: -150px;
+    top: -50px;
 
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 5px 10px;
-    /*width: fit-content;*/
-    height: max-content;
-    width: 150px;
+    width: fit-content;
+    height: 50px;
+    /*width: 150px;*/
     text-align: center;
 
-    background-color: red;
-    color: white;
-}
-
-.errorMessage::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -10px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 10px solid red;
+    background-color: var(--color-error-bg-dark);
+    border: 1px solid var(--color-error-border-dark);
+    color: var(--color-error-txt-dark);
 }
 

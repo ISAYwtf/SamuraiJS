@@ -3,6 +3,7 @@
     flex-direction: column;
     margin: 0 auto;
     width: 1200px;
+    height: 100%;
     max-width: 90vw;
 }
 

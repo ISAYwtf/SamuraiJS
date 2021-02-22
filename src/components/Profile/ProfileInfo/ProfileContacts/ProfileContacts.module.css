@@ -3,7 +3,6 @@
 }
 
 .contactsSocial a {
-    text-decoration: none;
-    color: black;
+    color: var(--color-txt-dark);
     margin-right: 10px;
 }
