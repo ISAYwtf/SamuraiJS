@@ -7,7 +7,7 @@ const ProfileJob = ({lookingForAJob, lookingForAJobDescription, ...props}) => {
         <div className={classes.profileJob}>
             <h2>Search for a job</h2>
             <p>
-                <span>{lookingForAJob ? "Looking for a job." : "Not looking for a job."}</span>
+                <strong>{lookingForAJob ? "Looking for a job." : "Not looking for a job."}</strong>
                 {lookingForAJobDescription}
             </p>
         </div>

@@ -2,8 +2,6 @@ import React from 'react';
 import classes from './Users.module.css';
 import {NavLink} from "react-router-dom";
 
-// TODO Исправить редирект при клике на FOLLOW
-
 const UserImage = ({img, name, userId}) =>
     <div className={classes.avatarImage}>
         {img
@@ -13,13 +11,16 @@ const UserImage = ({img, name, userId}) =>
 
 const UserAvatar = ({user, ...props}) => {
     const followBtn = flag => flag ? "Unfollow" : "Follow";
-    const checkFollowing = (flag, id) => flag ? props.unFollowTo(id) : props.followTo(id);
+    const checkFollowing = (flag, id, e) => {
+        e.preventDefault();
+        return flag ? props.unFollowTo(id) : props.followTo(id);
+    };
 
     return <div className={classes.userAvatar}>
         <UserImage img={user.photos.small} name={user.name} userId={user.id}/>
         <button disabled={props.isFollowing.some(id => id === user.id)}
                 className={classes.avatarButton}
-                onClick={() => checkFollowing(user.followed, user.id)}>
+                onClick={e => checkFollowing(user.followed, user.id, e)}>
             {followBtn(user.followed)}
         </button>
     </div>

@@ -11,3 +11,18 @@
     display: block;
     margin-bottom: 5px;
 }
+
+.lookingForAJob {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lookingForAJobCheckbox {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.lookingForAJobCheckbox h2 {
+    margin-right: 10px;
+}

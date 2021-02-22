@@ -4,6 +4,7 @@ import PostsContainer from "./MyPosts/PostsContainer";
 import Preloader from "../common/Preloader/Preloader";
 import Button from "../common/Button";
 import ProfileDataForm from "./ProfileInfo/ProfileDataForm/ProfileDataForm";
+import classes from "./Profile.module.css";
 
 const Profile = ({isOwner, profile, ...props}) => {
     const [editMode, setEditMode] = useState(false);
@@ -26,7 +27,7 @@ const Profile = ({isOwner, profile, ...props}) => {
                          updateProfile={props.updateProfile}/>
                 : <ProfileDataForm onSubmit={deActivateMode} profile={profile} initialValues={profile}/>}
             {!editMode && isOwner
-                ? <Button attr={{"onClick": activateEditMode}}>Edit profile</Button>
+                ? <Button className={classes.buttonEditMode} attr={{"onClick": activateEditMode}}>Edit profile</Button>
                 : ""}
             <PostsContainer/>
         </div>

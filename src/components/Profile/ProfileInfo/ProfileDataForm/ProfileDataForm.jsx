@@ -19,15 +19,19 @@ const ProfileDataForm = props =>
                         <h2>About Me</h2>
                         <Field placeholder={"About me"} name={"aboutMe"} component={Textarea}/>
                     </label>
-                    <label>
-                        <h2>Looking for a job?</h2>
-                        <Field name={"lookingForAJob"} component={Input} type={"checkbox"}/>
-                    </label>
-                    <label>
-                        <h2>Description for a looking job</h2>
+                    <div>
+                        <div className={classes.lookingForAJob}>
+                            <label className={classes.lookingForAJobCheckbox}>
+                                <h2>Looking for a job?</h2>
+                                <Field name={"lookingForAJob"} component={Input} type={"checkbox"}/>
+                            </label>
+                            <label htmlFor={"lookingForAJobDescription"}>
+                                <h2>Description for a looking job</h2>
+                            </label>
+                        </div>
                         <Field placeholder={"Description for a looking job"} name={"lookingForAJobDescription"}
-                               component={Textarea}/>
-                    </label>
+                               component={Textarea} id={"lookingForAJobDescription"}/>
+                    </div>
                     <div>
                         <h2>Contacts</h2>
                         <div>
