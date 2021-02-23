@@ -7,7 +7,7 @@ import {withSuspense} from "../../hoc/withSuspense";
 const DialogsContainer = React.lazy(() => import('../Dialogs/DialogsContainer'));
 const Search = React.lazy(() => import('../Search/Search'));
 
-const Sidebar = props =>
+const Sidebar = () =>
     <div className={classes.sidebar}>
         <Navbar/>
         <div><Route path={'/dialogs'} render={withSuspense(DialogsContainer)}/></div>

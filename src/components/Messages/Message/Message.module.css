@@ -1,10 +1,11 @@
 .message {
     background-color: var(--color-bg-select-dark);
     width: fit-content;
-    max-width: 250px;
+    max-width: 600px;
     padding: 10px 15px;
     color: var(--color-txt-active-dark);
     margin: 5px 0;
+    word-wrap: break-word;
 }
 
 .left {

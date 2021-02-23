@@ -10,7 +10,6 @@
     width: max-content;
 
     color: var(--color-txt-dark);
-    background-color: var(--color-bg-input-dark);
 }
 
 .paginationWrap span {

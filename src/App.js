@@ -12,7 +12,9 @@ import {getAppErrorData, getAppInitialized} from "./redux/App/app-selectors";
 import Alert from "./components/common/Alert/Alert";
 
 const App = props => {
-    useEffect(() => props.initializeApp(), [])
+    useEffect(() => {
+        props.initializeApp();
+    })
 
     if (!props.initialized) return <Preloader/>
 
@@ -35,8 +37,8 @@ const AppContainer = compose(
     connect(mapStateToProps, mapDispatchToProps)
 )(App);
 
-const SamuraiJSApp = props =>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+const SamuraiJSApp = () =>
+    <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
