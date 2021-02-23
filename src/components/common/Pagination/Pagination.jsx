@@ -6,12 +6,19 @@ const onPageChanged = (pageNumber, pageSize, setCurrentPage, getUsers) => {
     getUsers(pageNumber, pageSize);
 }
 
-const PaginationItem = ({currentNumber, currentPage, pageSize, item = null, ...props}) =>
-    <span onClick={() => onPageChanged(currentNumber, pageSize, props.setCurrentPage, props.getUsers)}
-          className={currentPage === currentNumber ? classes.paginationActive : ""}
-          key={currentNumber}>
-        {item ? item : currentNumber}
-    </span>
+const PaginationItem = ({currentNumber, currentPage, pageSize, ...props}) => {
+
+    const isActive = currentPage === currentNumber || (typeof props.item === "number" && currentPage === props.item)
+        ? classes.paginationActive : "";
+
+    let className = props.className ? props.className : "";
+    className = className || isActive ? `${className} ${isActive} ${classes.span}` : classes.span;
+
+    return <span onClick={() => onPageChanged(currentNumber, pageSize, props.setCurrentPage, props.getUsers)}
+                 className={className} key={currentNumber}>
+        {props.item ? props.item : currentNumber}
+    </span>;
+}
 
 const Pagination = props => {
 
@@ -27,8 +34,7 @@ const Pagination = props => {
 
         let pagination; // Пагинатор
 
-        if (pages.length > 20) { // Если страниц больше 20
-            let paginationCounter = 0; // Создаем счетчик для непоказанных чисел в пагинаторе
+        if (pages.length > 10) { // Если страниц больше 10
 
             // Далее возвращаем в переменную пагинатора массив с обернутыми числами в разметку
             pagination = pages.map((el, i, arr) => {
@@ -36,25 +42,34 @@ const Pagination = props => {
                 /* Если перебираемое число входит в первые или в последние три
                 * или является текущим элементом
                 * возвращаем элемент с числом */
-                if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length) || currentPage === el) {
+                if ((el >= 1 && el < 4) || (el > arr.length - 3 && el <= arr.length)) {
                     return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
                                            setCurrentPage={setCurrentPage} getUsers={getUsers}/>
 
                     /* Иначе если текущее число стоит рядом с текущим элементом
                     * возвращаем стрелку влево или вправо, для клика на следующий элемент от текущего*/
-                } else if (el === currentPage - 1 || el === currentPage + 1) {
-                    if (el < currentPage) {
-                        return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
-                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={"<"}/>
+                } else if (el === 4 || el === arr.length - 4 || el === arr.length - 3) {
+                    if (el === 4) {
+                        return <PaginationItem currentNumber={currentPage - 1} currentPage={currentPage}
+                                               pageSize={pageSize}
+                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={"<"}
+                                               className={classes.border}/>
+                    } else if (el === arr.length - 3) {
+                        return <PaginationItem currentNumber={currentPage + 1} currentPage={currentPage}
+                                               pageSize={pageSize}
+                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={">"}
+                                               className={classes.border}/>
                     } else {
-                        return <PaginationItem currentNumber={el} currentPage={currentPage} pageSize={pageSize}
-                                               setCurrentPage={setCurrentPage} getUsers={getUsers} item={">"}/>
-                    }
-                } else {
-                    paginationCounter++; // Увеличиваем счетчик непоказанных чисел
+                        const length = arr.length - 3;
+                        const item = currentPage <= 3
+                            ? 4
+                            : currentPage >= length
+                                ? length
+                                : currentPage;
 
-                    if (paginationCounter <= 100) { // Если непоказанных чисел меньше 100
-                        return "." // Показываем точку
+                        return <PaginationItem currentNumber={item} currentPage={currentPage} pageSize={pageSize}
+                                               setCurrentPage={setCurrentPage}
+                                               getUsers={getUsers} item={item}/>
                     }
                 }
             })
