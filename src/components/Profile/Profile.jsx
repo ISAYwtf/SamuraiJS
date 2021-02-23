@@ -21,7 +21,7 @@ const Profile = ({isOwner, profile, ...props}) => {
     if (!profile) return <Preloader/>
 
     return (
-        <div>
+        <div className={`component--wrap`}>
             {!editMode
                 ? <ProfileInfo isOwner={isOwner} profile={profile} savePhoto={props.savePhoto}
                          updateProfile={props.updateProfile}/>

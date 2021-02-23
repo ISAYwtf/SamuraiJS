@@ -3,7 +3,6 @@
     width: fit-content;
     max-width: 250px;
     padding: 10px 15px;
-    /*border-radius: 100px;*/
     color: var(--color-txt-active-dark);
     margin: 5px 0;
 }

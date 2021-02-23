@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./ProfileMainInfo.module.css";
 import ProfileStatusContainer from "./ProfileStatus/ProfileStatusContainer";
 import ProfileAvatar from "./ProfileAvatar";
-import Button from "../../../common/Button";
 
 const SelectPhotoButton = ({isOwner, savePhoto}) => {
     let selectMsg = "Select your image";
@@ -35,12 +34,14 @@ const ProfileMainInfo = ({photos, fullName, userId, isOwner, ...props}) => {
                 <SelectPhotoButton isOwner={isOwner} savePhoto={props.savePhoto}/>
             </div>
 
-            <div className={classes.profileStatus}>
-                <div className={classes.profileName}>{fullName}</div>
-                <ProfileStatusContainer/>
-            </div>
+            <div className={classes.profileNameWrap}>
+                <div className={classes.profileStatus}>
+                    <div className={classes.profileName}>{fullName}</div>
+                    <ProfileStatusContainer/>
+                </div>
 
-            <div className={classes.profileId}>{userId}</div>
+                <div className={classes.profileId}>{userId}</div>
+            </div>
         </div>
     )
 };

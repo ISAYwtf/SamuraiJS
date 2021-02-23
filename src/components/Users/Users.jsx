@@ -6,7 +6,7 @@ import User from "./User";
 
 const Users = props => {
 
-    return <div className={classes.usersWrap}>
+    return <div className={`${classes.usersWrap} component--wrap`}>
         <Preloader flag={props.isFetching}/>
 
         {props.users.map(el => <User key={el.id} user={el} {...props}/>)}

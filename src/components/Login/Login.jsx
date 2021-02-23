@@ -52,7 +52,7 @@ const Login = ({login, isAuth, captchaUrl}) => {
     }
 
     return (
-        <div>
+        <div className={`component--wrap`}>
             <h2 className={classes.formTitle}>Sign in</h2>
             <LoginFormRedux onSubmit={submitData} captchaUrl={captchaUrl}/>
         </div>

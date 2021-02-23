@@ -44,7 +44,7 @@ const Search = props => {
 
     }
 
-    return <div className={classes.searchBlock}>
+    return <div className={`component component--sidebar`}>
         <SearchFormRedux title={"User ID"} placeholder={"Input user ID"} name={"searchUser"}
                          onSubmit={handleSearchUser}/>
         <SearchFormRedux title={"Page of users"} placeholder={"Input number of page"} name={"searchPage"}

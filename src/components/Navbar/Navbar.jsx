@@ -12,27 +12,24 @@ import {NavLink} from "react-router-dom";
 
 // const FriendsListContainer = connect(mapStateToProps)(FriendsList);
 
-const Navbar = () => {
-    return (
-        <nav className={classes.nav}>
-            <NavLink to={`/profile`} activeClassName={classes.active} className={classes.item}>
-                Profile
-            </NavLink>
-            <NavLink to={`/dialogs`} activeClassName={classes.active} className={classes.item}>
-                Messages
-            </NavLink>
-            <NavLink to={`/users`} activeClassName={classes.active} className={classes.item}>
-                Users
-            </NavLink>
-            <NavLink to={`/music`} activeClassName={classes.active} className={classes.item}>
-                Music
-            </NavLink>
-            <NavLink to={`/settings`} activeClassName={classes.active} className={classes.item}>
-                Settings
-            </NavLink>
-            {/*<FriendsListContainer />*/}
-        </nav>
-    )
-}
+const Navbar = () =>
+    <nav className={`component component--sidebar`}>
+        <NavLink to={`/profile`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            Profile
+        </NavLink>
+        <NavLink to={`/dialogs`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            Messages
+        </NavLink>
+        <NavLink to={`/users`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            Users
+        </NavLink>
+        <NavLink to={`/music`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            Music
+        </NavLink>
+        <NavLink to={`/settings`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            Settings
+        </NavLink>
+        {/*<FriendsListContainer />*/}
+    </nav>
 
 export default Navbar;

@@ -1,15 +1,9 @@
 .content {
     position: relative;
-    margin: 0 0 0 5px;
+    margin-right: 0;
 
-    max-height: 88vh;
-    overflow-y: scroll;
-    border-radius: var(--radius-border);
-    width: 100%;
-    min-width: 500px;
+    padding: 0;
+    min-width: 400px;
     min-height: 500px;
-}
-
-.content::-webkit-scrollbar {
-    display: none;
+    border: none;
 }

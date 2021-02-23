@@ -27,7 +27,6 @@
 
 .item:hover {
     border: 3px solid var(--color-border-dark);
-    /*transform: scale(0.95);*/
 }
 
 img {

@@ -3,13 +3,15 @@
 
 .user {
     display: flex;
+
     padding: 10px;
     margin: 10px 0;
+
     height: 100px;
-    border-radius: var(--radius-border);
-    transition: 0.2s;
-    background-color: var(--color-bg-dark);
+
     border: 1px solid var(--color-border-dark);
+
+    transition: var(--transition);
 }
 
 .user:first-child {
@@ -29,6 +31,7 @@
 }
 
 .user:hover {
+    background-color: var(--color-bg-input-dark);
     border-color: var(--color-border-hover);
 }
 
@@ -36,6 +39,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     height: 100%;
     width: max-content;
 }
@@ -50,7 +54,7 @@
 
     border: 1px solid var(--color-border-dark);
     color: var(--color-txt-dark);
-    font-size: 2em;
+    font-size: 2rem;
     overflow: hidden;
 }
 
@@ -78,18 +82,21 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+
     height: 100%;
     width: 50%;
+
     margin-left: 10px;
     padding: 10px;
-    /*border: 1px solid var(--color-border-dark);*/
-    border-radius: 5px;
+
+    border-radius: var(--radius-border);
     color: var(--color-txt-dark);
-    transition: 0.2s;
+
+    transition: var(--transition);
 }
 
 .infoName {
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .infoStatus {

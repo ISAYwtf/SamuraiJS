@@ -5,6 +5,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
     width: 100vw;
     height: 100vh;
     background-color: var(--color-bg-main-dark);
@@ -31,4 +32,6 @@ code {
     --color-error-txt-dark: var(--color-txt-active-dark);
     --color-bg-muted: rgba(0, 0, 0, 0.5);
     --radius-border: 5px;
+    --size-font-base: 1rem;
+    --transition: 0.2s;
 }

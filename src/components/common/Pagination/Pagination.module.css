@@ -1,11 +1,5 @@
 .pagination {
-    position: sticky;
-    bottom: 0;
-
     width: 100%;
-    height: max-content;
-
-    z-index: 1;
 }
 
 .paginationWrap {
@@ -14,11 +8,9 @@
 
     margin: 0 auto;
     width: max-content;
-    height: max-content;
 
-    color: white;
+    color: var(--color-txt-dark);
     background-color: var(--color-bg-input-dark);
-    border-radius: 100px;
 }
 
 .paginationWrap span {
@@ -26,19 +18,14 @@
     align-items: center;
     justify-content: center;
 
-    padding: 10px;
+    padding: 5px 15px;
 
-    width: 50px;
-    height: 50px;
-
-    border-radius: 100px;
-
-    cursor: pointer;
-    transition: 0.2s;
+    cursor: default;
+    transition: var(--transition);
 }
 
 .paginationWrap span:hover {
-    background-color: var(--color-bg-btn-hover-dark);
+    background-color: var(--color-bg-select-dark);
 }
 
 .paginationActive {

@@ -4,7 +4,9 @@ import React from "react";
 
 const DialogItem = ({name, id}) => {
     return (
-        <NavLink to={`/dialogs/${id}`} activeClassName={classes.active} className={classes.dialog}>{name}</NavLink>
+        <NavLink to={`/dialogs/${id}`} activeClassName={`sidebar--item--active`} className={`sidebar--item`}>
+            {name}
+        </NavLink>
     )
 }
 

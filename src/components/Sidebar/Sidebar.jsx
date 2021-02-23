@@ -1,12 +1,17 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import classes from "./Sidebar.module.css";
-import Search from "../Search/Search";
+import {Route} from "react-router-dom";
+import {withSuspense} from "../../hoc/withSuspense";
+
+const DialogsContainer = React.lazy(() => import('../Dialogs/DialogsContainer'));
+const Search = React.lazy(() => import('../Search/Search'));
 
 const Sidebar = props =>
     <div className={classes.sidebar}>
         <Navbar/>
-        <Search/>
+        <div><Route path={'/dialogs'} render={withSuspense(DialogsContainer)}/></div>
+        <div><Route path={'/users'} render={withSuspense(Search)}/></div>
     </div>
 
 export default Sidebar;

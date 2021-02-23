@@ -6,8 +6,10 @@ const Post = ({message, likesCount}) => {
     return (
         <div className={classes.post}>
             <p>{message}</p>
-            <small>Like</small>
-            <small>{likesCount}</small>
+            <div className={classes.likes}>
+                <small>Like</small>
+                <small>{likesCount}</small>
+            </div>
         </div>
     )
 }

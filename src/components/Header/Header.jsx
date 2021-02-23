@@ -6,10 +6,10 @@ import logo from "./../../logo.svg";
 
 const Header = ({isAuth, login, logout}) => {
     return (
-        <header className={classes.header}>
-            <div className={classes.logo}>
+        <header className={`${classes.header} component`}>
+            <NavLink to={"/profile"} className={classes.logo}>
                 <img src={logo} alt="logo"/>
-            </div>
+            </NavLink>
             <div className={classes.login}>
                 {isAuth
                     ? <div className={classes.loginUser}>

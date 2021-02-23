@@ -7,11 +7,12 @@
 .textarea {
     margin-right: 30px;
 
-    width: 500px;
+    max-width: 590px;
+    width: 82%;
     height: 100px;
 }
 
 .textarea textarea {
     padding: 2px 5px;
-    resize: none;
+    resize: vertical;
 }
