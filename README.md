@@ -6,7 +6,7 @@ This project was created thanks to course of *[Dmitriy Kuzyuberdin](https://www.
 
 If you have any questions for me, you can send me *[email](iaydynov1998@gmail.com)*.
 
-## Deployed project you can find *[here](https://isaywtf.github.io/react-study-project/)*
+## Deployed project you can find *[here](https://isaywtf.github.io/SamuraiJS/)*
 
 *To sign in to the social network you can use below data:*
 
