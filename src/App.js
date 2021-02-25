@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {BrowserRouter, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {connect, Provider} from "react-redux";
 import './App.css';

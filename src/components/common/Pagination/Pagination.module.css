@@ -32,10 +32,14 @@
     border: 1px solid var(--color-border-hover);
 }
 
-.border:first-child {
-    margin-left: 5px;
+.paginationWrap .borderLeft {
+    margin-left: 15px;
 }
 
-.border:last-child {
-    margin-right: 5px;
+.paginationWrap .borderRight {
+    margin-right: 15px;
 }
+
+/*.paginationWrap .border:last-child {*/
+/*    margin-right: 15px;*/
+/*}*/

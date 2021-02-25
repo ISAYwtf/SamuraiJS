@@ -50,15 +50,17 @@ const Pagination = props => {
                     * возвращаем стрелку влево или вправо, для клика на следующий элемент от текущего*/
                 } else if (el === 4 || el === arr.length - 4 || el === arr.length - 3) {
                     if (el === 4) {
-                        return <PaginationItem currentNumber={currentPage - 1} currentPage={currentPage}
+                        const currentNumber = currentPage - 1 >= 1 ? currentPage - 1 : arr.length;
+                        return <PaginationItem currentNumber={currentNumber} currentPage={currentPage}
                                                pageSize={pageSize}
                                                setCurrentPage={setCurrentPage} getUsers={getUsers} item={"<"}
-                                               className={classes.border}/>
+                                               className={classes.borderLeft}/>
                     } else if (el === arr.length - 3) {
-                        return <PaginationItem currentNumber={currentPage + 1} currentPage={currentPage}
+                        const currentNumber = currentPage + 1 <= arr.length ? currentPage + 1 : 1;
+                        return <PaginationItem currentNumber={currentNumber} currentPage={currentPage}
                                                pageSize={pageSize}
                                                setCurrentPage={setCurrentPage} getUsers={getUsers} item={">"}
-                                               className={classes.border}/>
+                                               className={classes.borderRight}/>
                     } else {
                         const length = arr.length - 3;
                         const item = currentPage <= 3
