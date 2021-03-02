@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../ProfileJob/ProfileJob.module.css";
+import classes from "../ProfileInfo.module.css";
 
 const ProfileAbout = ({aboutMe, ...props}) => {
     if (!aboutMe) {
@@ -7,7 +7,7 @@ const ProfileAbout = ({aboutMe, ...props}) => {
     }
 
     return (
-        <div className={classes.profileJob}>
+        <div className={classes.profileInfoBlock}>
             <h2>About me</h2>
             <p>{aboutMe}</p>
         </div>

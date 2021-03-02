@@ -3,7 +3,7 @@
     height: max-content;
     width: 100%;
     padding: 0 0 10px;
-    font-size: 1.2em;
+    font-size: calc(1.2 * var(--size-font-base));
 }
 
 .profileAvatar {
@@ -17,11 +17,11 @@
 }
 
 .profileId {
-    font-size: 4rem;
+    font-size: calc(3.5 * var(--size-font-base));
 }
 
 .profileName {
-    font-size: 2rem;
+    font-size: calc(2 * var(--size-font-base));
     font-weight: bold;
     color: var(--color-txt-dark);
 }
@@ -42,11 +42,11 @@
     align-items: center;
     justify-content: center;
 
-    font-size: var(--size-font-base);
+    font-size: var(--size-font-btn);
     background-color: var(--color-bg-btn-dark);
     border: 1px solid var(--color-border-dark);
 
-    transition: 0.2s;
+    transition: var(--transition);
 }
 
 .selectImgBtn > .button:hover {
@@ -67,5 +67,6 @@
 
     .profileStatus {
         text-align: right;
+        padding-right: 0;
     }
 }

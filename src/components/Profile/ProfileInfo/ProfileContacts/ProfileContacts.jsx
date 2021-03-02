@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./ProfileContacts.module.css";
+import classes from "../ProfileInfo.module.css";
 
 const ProfileContacts = ({contacts, ...props}) => {
     const contactsListJSX = [];
@@ -12,9 +12,9 @@ const ProfileContacts = ({contacts, ...props}) => {
 
     if (contactsListJSX.length > 0) {
         return (
-            <div className={classes.profileContacts}>
+            <div className={classes.profileInfoBlock}>
                 <h2>Contacts</h2>
-                <div className={classes.contactsSocial}>
+                <div>
                     {contactsListJSX}
                 </div>
             </div>

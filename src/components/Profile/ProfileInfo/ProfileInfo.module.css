@@ -13,3 +13,17 @@
 .profileUser p  {
     margin-bottom: 30px;
 }
+
+.profileInfoBlock {
+    font-size: var(--size-font-base);
+}
+
+.profileInfoBlock a {
+    margin-right: 10px;
+    color: var(--color-txt-dark);
+    transition: var(--transition);
+}
+
+.profileInfoBlock a:hover {
+    color: var(--color-txt-active-dark)
+}

@@ -15,7 +15,6 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 :root {
     --color-bg-main-dark: #0d1117;
     --color-bg-dark: #0d1117;
@@ -32,6 +31,18 @@ code {
     --color-error-txt-dark: var(--color-txt-active-dark);
     --color-bg-muted: rgba(0, 0, 0, 0.5);
     --radius-border: 5px;
-    --size-font-base: 1rem;
     --transition: 0.2s;
+    --size-font-base: 1rem;
+    --size-font-btn: calc(0.9 * var(--size-font-base));
+    --size-font-title: calc(1.4 * var(--size-font-base));
+}
+
+@media screen and (max-width: 768px) {
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    :root {
+        --size-font-base: 0.9em;
+    }
 }

@@ -1,24 +1,30 @@
 .post {
     display: flex;
-    align-items: flex-end;
+    justify-content: space-between;
     padding: 10px;
     margin: 10px 0;
 
     background: var(--color-bg-select-dark);
     color: var(--color-txt-dark);
-    /*overflow: ;*/
 }
 
 .post p {
     max-width: 100%;
     margin: 0;
-    overflow-wrap: anywhere;
+    word-wrap: break-word;
 }
 
 .likes {
+    align-self: flex-end;
     margin-left: 20px;
+    transition: var(--transition);
+    cursor: default;
 }
 
 .likes small {
     margin-right: 5px;
+}
+
+.likes:hover {
+    color: var(--color-txt-active-dark);
 }
