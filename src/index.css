@@ -35,6 +35,7 @@ code {
     --size-font-base: 1rem;
     --size-font-btn: calc(0.9 * var(--size-font-base));
     --size-font-title: calc(1.4 * var(--size-font-base));
+    --width-min-button: 100px;
 }
 
 @media screen and (max-width: 768px) {
@@ -44,5 +45,6 @@ code {
 
     :root {
         --size-font-base: 0.9em;
+        --width-min-button: 80px;
     }
 }

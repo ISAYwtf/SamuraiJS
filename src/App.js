@@ -6,10 +6,10 @@ import './App.css';
 import store from "./redux/redux-store";
 import {toggleHasError, initializeApp} from "./redux/App/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import HeaderContainer from "./components/Header/HeaderContainer";
 import Body from "./components/Body";
 import {getAppErrorData, getAppInitialized} from "./redux/App/app-selectors";
 import Alert from "./components/common/Alert/Alert";
+import Header from "./components/Header/Header";
 
 const App = props => {
     useEffect(() => {
@@ -19,7 +19,7 @@ const App = props => {
     if (!props.initialized) return <Preloader/>
 
     return <div className='app-wrapper'>
-        <HeaderContainer/>
+        <Header/>
         <Body/>
 
         {props.errorData.hasError ? <Alert>{props.errorData.errorMessage}</Alert> : ""}
@@ -38,10 +38,10 @@ const AppContainer = compose(
 )(App);
 
 const SamuraiJSApp = () =>
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 
 export default SamuraiJSApp;

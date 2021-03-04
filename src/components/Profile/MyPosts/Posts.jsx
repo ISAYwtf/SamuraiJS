@@ -38,7 +38,7 @@ const AddPostForm = props => {
         <form onSubmit={props.handleSubmit} className={classes.inputWrap}>
             <Field component={Textarea} name={"newPost"} placeholder={`Type your post...`}
                    className={classes.textarea} validate={[required, maxLength300]}/>
-            <Button className={classes.add}>Add post</Button>
+            <Button>Add post</Button>
         </form>
     )
 };

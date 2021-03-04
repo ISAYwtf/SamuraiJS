@@ -1,0 +1,27 @@
+@media screen and (min-width: 769px) {
+    .burger {
+        display: none;
+    }
+}
+
+.burger {
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.burger svg {
+    fill: var(--color-txt-dark);
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+}
+
+.burger:hover svg {
+    fill: var(--color-txt-active-dark);
+}
+
+.burger:hover .burgerLines rect {
+    width: 20px;
+}

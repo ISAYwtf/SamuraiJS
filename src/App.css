@@ -55,3 +55,17 @@ h2 {
     background-color: var(--color-bg-select-dark);
     color: var(--color-txt-active-dark);
 }
+
+@media screen and (max-width: 768px) {
+    .component {
+        margin: 5px 0;
+    }
+
+    .component--sidebar {
+        background-color: var(--color-bg-dark);
+        min-width: 250px;
+        max-width: 500px;
+        width: max-content;
+        margin: 10px;
+    }
+}

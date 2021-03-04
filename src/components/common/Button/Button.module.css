@@ -4,7 +4,7 @@
 
     color: var(--color-txt-dark);
 
-    width: 100px;
+    min-width: var(--width-min-button);
     height: 30px;
 
     transition: var(--transition);
