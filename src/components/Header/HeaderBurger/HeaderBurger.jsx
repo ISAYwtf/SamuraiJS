@@ -5,7 +5,10 @@ import {connect} from "react-redux";
 import {toggleIsShowed} from "../../../redux/Sidebar/sidebar-reducer";
 
 const HeaderBurger = ({toggleIsShowed}) => {
-    const openSidebar = e => toggleIsShowed(true);
+    const openSidebar = e => {
+        document.body.style.overflowY = "hidden";
+        return toggleIsShowed(true);
+    };
 
     return (
         <div className={classes.burger} onClick={openSidebar}>

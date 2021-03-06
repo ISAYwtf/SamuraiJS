@@ -67,5 +67,16 @@ h2 {
         max-width: 500px;
         width: max-content;
         margin: 10px;
+        animation-name: sidebar-comp-appear;
+        animation-duration: 0.3s;
+    }
+}
+
+@keyframes sidebar-comp-appear {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(0);
     }
 }

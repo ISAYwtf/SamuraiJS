@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../Navbar/Navbar";
 import classes from "./Sidebar.module.css";
 import {Route} from "react-router-dom";
@@ -12,7 +12,11 @@ const DialogsContainer = React.lazy(() => import('../Dialogs/DialogsContainer'))
 const Search = React.lazy(() => import('../Search/Search'));
 
 const Sidebar = ({isShowed, toggleIsShowed, ...props}) => {
-    const closeSidebar = e => toggleIsShowed(false);
+
+    const closeSidebar = e => {
+        toggleIsShowed(false);
+        document.body.style.overflowY = "unset";
+    };
 
     return <div className={classes.sidebar} data-show={isShowed} onClick={closeSidebar}>
         <Navbar/>
