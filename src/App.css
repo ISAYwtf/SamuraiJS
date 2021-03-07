@@ -70,6 +70,13 @@ h2 {
         animation-name: sidebar-comp-appear;
         animation-duration: 0.3s;
     }
+
+    @media screen and (max-width: 450px) {
+        .app-wrapper {
+            max-width: 95vw;
+            width: max-content;
+        }
+    }
 }
 
 @keyframes sidebar-comp-appear {

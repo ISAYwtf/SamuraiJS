@@ -47,4 +47,12 @@ code {
         --size-font-base: 0.9em;
         --width-min-button: 80px;
     }
+
+    @media screen and (max-width: 450px) {
+        :root {
+            --size-font-base: 0.8em;
+        }
+    }
 }
+
+

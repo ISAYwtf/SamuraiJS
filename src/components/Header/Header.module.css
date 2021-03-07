@@ -29,4 +29,13 @@
     .headerLogin {
         display: none;
     }
+
+    @media screen and (max-width: 450px) {
+        .header {
+            padding: 5px 10px;
+        }
+        .logo {
+            max-width: 200px;
+        }
+    }
 }

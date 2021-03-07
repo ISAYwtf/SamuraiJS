@@ -27,3 +27,7 @@
 .profileInfoBlock a:hover {
     color: var(--color-txt-active-dark)
 }
+
+.profileInfoBlock strong {
+    margin-right: 5px;
+}

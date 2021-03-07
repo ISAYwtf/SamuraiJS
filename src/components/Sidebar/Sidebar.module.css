@@ -31,6 +31,9 @@
         overflow-x: scroll;
         overflow-y: hidden;
 
+        animation-name: sidebar-appear;
+        animation-duration: 0.1s;
+
         opacity: 0;
         background: rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
@@ -40,14 +43,7 @@
 
     .sidebar[data-show="true"] {
         display: flex;
-        animation-name: sidebar-appear;
-        animation-duration: 0.3s;
         opacity: 1;
-    }
-
-    .reverse {
-        animation-name: sidebar-disappear;
-        animation-duration: 0.3s;
     }
 }
 
@@ -57,14 +53,5 @@
     }
     to {
         opacity: 1;
-    }
-}
-
-@keyframes sidebar-disappear {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
     }
 }

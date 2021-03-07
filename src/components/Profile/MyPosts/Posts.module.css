@@ -16,3 +16,29 @@
     padding: 2px 5px;
     resize: vertical;
 }
+
+.textarea textarea::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .inputWrap {
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: 450px) {
+        .inputWrap {
+            flex-direction: column;
+        }
+        .textarea {
+            margin: 0 0 10px;
+            width: 100%;
+            max-width: unset;
+            height: calc(3 * var(--size-font-base));
+        }
+        .addPostBtn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
