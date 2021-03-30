@@ -73,8 +73,8 @@ h2 {
 
     @media screen and (max-width: 450px) {
         .app-wrapper {
-            max-width: 95vw;
-            width: max-content;
+            max-width: 98vw;
+            width: 95vw;
         }
     }
 }
