@@ -47,6 +47,12 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .sidebar {
+        padding: 10px;
+    }
+}
+
 @keyframes sidebar-appear {
     from {
         opacity: 0;

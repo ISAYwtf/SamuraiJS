@@ -9,6 +9,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: var(--color-bg-main-dark);
+    font-size: var(--size-font-base);
 }
 
 code {
@@ -44,15 +45,13 @@ code {
     }
 
     :root {
-        --size-font-base: 0.9em;
+        --size-font-base: 0.9rem;
         --width-min-button: 80px;
-    }
-
-    @media screen and (max-width: 450px) {
-        :root {
-            --size-font-base: 0.8em;
-        }
     }
 }
 
-
+@media screen and (max-width: 450px) {
+    :root {
+        --size-font-base: 0.8rem;
+    }
+}

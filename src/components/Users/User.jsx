@@ -9,22 +9,26 @@ const UserImage = ({img, name, userId}) =>
             : name.substr(0, 1).toUpperCase()}
     </div>
 
-const UserAvatar = ({user, ...props}) => {
+const FollowBtn = props => {
     const followBtn = flag => flag ? "Unfollow" : "Follow";
+
     const checkFollowing = (flag, id, e) => {
         e.preventDefault();
         return flag ? props.unFollowTo(id) : props.followTo(id);
     };
 
-    return <div className={classes.userAvatar}>
-        <UserImage img={user.photos.small} name={user.name} userId={user.id}/>
-        <button disabled={props.isFollowing.some(id => id === user.id)}
-                className={classes.avatarButton}
-                onClick={e => checkFollowing(user.followed, user.id, e)}>
-            {followBtn(user.followed)}
-        </button>
-    </div>
+    return <button disabled={props.isFollowing.some(id => id === props.user.id)}
+                   className={`${props.className}`}
+                   onClick={e => checkFollowing(props.user.followed, props.user.id, e)}>
+        {followBtn(props.user.followed)}
+    </button>
 }
+
+const UserAvatar = props =>
+    <div className={classes.userAvatar}>
+        <UserImage img={props.user.photos.small} name={props.user.name} userId={props.user.id}/>
+        <FollowBtn {...props} className={classes.avatarButton}/>
+    </div>
 
 const UserInfo = ({user}) =>
     <div className={classes.userInfo}>
@@ -32,11 +36,12 @@ const UserInfo = ({user}) =>
         <div className={classes.infoStatus}>{user.status}</div>
     </div>
 
-const User = ({user, ...props}) =>
-    <NavLink to={`/profile/${user.id}`} className={classes.user}>
-        <UserAvatar user={user} unFollowTo={props.unFollowTo} followTo={props.followTo}
+const User = props =>
+    <NavLink to={`/profile/${props.user.id}`} className={classes.user}>
+        <UserAvatar user={props.user} unFollowTo={props.unFollowTo} followTo={props.followTo}
                     isFollowing={props.isFollowing}/>
-        <UserInfo user={user}/>
+        <UserInfo user={props.user}/>
+        <FollowBtn className={classes.followBtnMobile} {...props} />
     </NavLink>
 
 export default User;
