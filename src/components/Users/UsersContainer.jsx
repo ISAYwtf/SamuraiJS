@@ -9,6 +9,7 @@ import {
     getTotalUsersCountState,
     getUsersState
 } from "../../redux/Users/users-selectors";
+import {getIsAuth} from "../../redux/Auth/auth-selectors";
 
 const UsersContainer = props => {
     useEffect(() => {
@@ -25,7 +26,8 @@ const mapStateToProps = state => ({
     totalItemsCount: getTotalUsersCountState(state),
     currentPage: getCurrentPageState(state),
     isFetching: getIsFetchingState(state),
-    isFollowing: getIsFollowingState(state)
+    isFollowing: getIsFollowingState(state),
+    isAuth: getIsAuth(state)
 })
 
 const mapDispatchToProps = {

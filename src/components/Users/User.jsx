@@ -14,7 +14,13 @@ const FollowBtn = props => {
 
     const checkFollowing = (flag, id, e) => {
         e.preventDefault();
+
+        if (!props.isAuth) {
+            props.history.push("/login");
+        }
+
         return flag ? props.unFollowTo(id) : props.followTo(id);
+
     };
 
     return <button disabled={props.isFollowing.some(id => id === props.user.id)}
@@ -39,9 +45,11 @@ const UserInfo = ({user}) =>
 const User = props =>
     <NavLink to={`/profile/${props.user.id}`} className={classes.user}>
         <UserAvatar user={props.user} unFollowTo={props.unFollowTo} followTo={props.followTo}
-                    isFollowing={props.isFollowing}/>
+                    isFollowing={props.isFollowing} isAuth={props.isAuth} history={props.history}/>
         <UserInfo user={props.user}/>
-        <FollowBtn className={classes.followBtnMobile} {...props} />
+        <FollowBtn className={classes.followBtnMobile} user={props.user} unFollowTo={props.unFollowTo}
+                   followTo={props.followTo}
+                   isFollowing={props.isFollowing} isAuth={props.isAuth} history={props.history}/>
     </NavLink>
 
 export default User;
