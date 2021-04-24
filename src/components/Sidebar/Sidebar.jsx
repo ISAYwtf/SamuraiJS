@@ -7,6 +7,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {getIsShowed} from "../../redux/Sidebar/sidebar-selectors";
 import {toggleIsShowed} from "../../redux/Sidebar/sidebar-reducer";
+import HeaderLoginContainer from "../HeaderLogin/HeaderLoginContainer";
 
 const DialogsContainer = React.lazy(() => import('../Dialogs/DialogsContainer'));
 const Search = React.lazy(() => import('../Search/Search'));
@@ -22,6 +23,7 @@ const Sidebar = ({isShowed, toggleIsShowed, ...props}) => {
         <Navbar/>
         <Route path={'/dialogs'} render={withSuspense(DialogsContainer)}/>
         <Route path={'/users'} render={withSuspense(Search)}/>
+        <HeaderLoginContainer className={`component component--sidebar ${classes.sidebarLogin}`}/>
     </div>;
 }
 

@@ -26,3 +26,13 @@
 .lookingForAJobCheckbox h2 {
     margin-right: 10px;
 }
+
+@media screen and (max-width: 650px) {
+    .lookingForAJob {
+        flex-direction: column-reverse;
+    }
+
+    .lookingForAJobCheckbox h2 {
+        font-size: var(--size-font-base);
+    }
+}
